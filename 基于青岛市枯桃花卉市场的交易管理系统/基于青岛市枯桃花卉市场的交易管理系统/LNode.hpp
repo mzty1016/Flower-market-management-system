@@ -1,16 +1,14 @@
 //
-//  Global.hpp
+//  LNode.hpp
 //  基于青岛市枯桃花卉市场的交易管理系统
 //
-//  Created by 🍓XJK on 2019/12/6.
+//  Created by 🍓XJK on 2019/12/12.
 //  Copyright © 2019 🍓XJK. All rights reserved.
 //
 
-#ifndef Global_hpp
-#define Global_hpp
+#ifndef LNode_hpp
+#define LNode_hpp
 
 #include <stdio.h>
 
-extern const int MAXSIZE;
-
-#endif /* Global_hpp */
+#endif /* LNode_hpp */

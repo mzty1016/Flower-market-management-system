@@ -9,17 +9,29 @@
 #ifndef Hash_hpp
 #define Hash_hpp
 
-#include <stdio.h>
+#include <iostream>
+#include <vector>
+#include <cmath>
 
+#include "Flower.hpp"
+#include "Global.hpp"
+
+using namespace std;
+
+//哈希表链地址处理法结点
+typedef struct node{
+    Flower *flower;
+    struct node *next;
+}LNode;
+//哈希表类
 class HashTable {
-public:
-  HashTable();
-private:
-  int length;
+ public:
+    HashTable();
+    void AddFlower();
+ private:
+    vector<LNode*> first;
+    int length;
 };
 
-HashTable::HashTable() {
-    length = 0;
-}
 
 #endif /* Hash_hpp */

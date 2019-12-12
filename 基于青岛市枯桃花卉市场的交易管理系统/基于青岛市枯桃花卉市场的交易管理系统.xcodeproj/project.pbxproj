@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31577AFB23A26361003C295C /* LNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31577AF923A26361003C295C /* LNode.cpp */; };
 		31E75768239A998300B76F82 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31E75767239A998300B76F82 /* main.cpp */; };
 		31E75770239A99A300B76F82 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31E7576E239A99A300B76F82 /* Global.cpp */; };
 		31E75773239B8BB000B76F82 /* Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31E75771239B8BB000B76F82 /* Hash.cpp */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31577AF923A26361003C295C /* LNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LNode.cpp; sourceTree = "<group>"; };
+		31577AFA23A26361003C295C /* LNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LNode.hpp; sourceTree = "<group>"; };
 		31E75764239A998300B76F82 /* 基于青岛市枯桃花卉市场的交易管理系统 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "基于青岛市枯桃花卉市场的交易管理系统"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E75767239A998300B76F82 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		31E7576E239A99A300B76F82 /* Global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 				31E75775239BFF3400B76F82 /* Flower.hpp */,
 				31E7577A239C030500B76F82 /* FlowerDate.cpp */,
 				31E7577B239C030500B76F82 /* FlowerDate.hpp */,
+				31577AF923A26361003C295C /* LNode.cpp */,
+				31577AFA23A26361003C295C /* LNode.hpp */,
 			);
 			path = "基于青岛市枯桃花卉市场的交易管理系统";
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				31E7577C239C030500B76F82 /* FlowerDate.cpp in Sources */,
 				31E75770239A99A300B76F82 /* Global.cpp in Sources */,
 				31E75776239BFF3400B76F82 /* Flower.cpp in Sources */,
+				31577AFB23A26361003C295C /* LNode.cpp in Sources */,
 				31E75768239A998300B76F82 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

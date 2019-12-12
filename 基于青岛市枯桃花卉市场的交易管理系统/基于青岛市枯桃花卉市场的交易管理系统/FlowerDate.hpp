@@ -11,12 +11,17 @@
 
 #include <stdio.h>
 
-//花卉上架日期
+//花卉上架日期类
 class FlowerDate {
-public:
-    FlowerDate();
-    FlowerDate(int year, int month, int day);
-private:
+ public:
+    FlowerDate(); //默认构造函数
+    FlowerDate(int year, int month, int day); //进行初始化的构造函数
+    FlowerDate(FlowerDate &flower_date); //复制构造函数
+    void SetDateInfo(int year, int month, int day); //设置日期函数
+    const int& YearInfo(); //返回年份信息
+    const int& MonthInfo(); //返回月份信息
+    const int& DayInfo(); //返回日信息
+ private:
     int year; //花卉上架的年份
     int month; //花卉上架的月份
     int day; //花卉上架的日

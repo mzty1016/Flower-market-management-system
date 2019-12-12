@@ -9,12 +9,31 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <vector>
 
 #include "Global.hpp"
+#include "Flower.hpp"
+#include "Hash.hpp"
 
 using namespace std;
+extern char sd[22];
 
 int main(int argc, const char * argv[]) {
+    HashTable hashtable;
+    hashtable.AddFlower();
+//    string a;
+//    cin>>a;
+//    int b = a[0];
+//    int c = a[1];
+//    int d = a[2];
+//    printf("%d %d %d\n", b, c, d);
+//    hashtable.AddFlower();
+//    hashtable.AddFlower();
+//    hashtable.AddFlower();
+//    hashtable.AddFlower();
+    hashtable.AddFlower();
+    hashtable.AddFlower();
+    
     ifstream myFile;
     myFile.open("/Users/xumingfei/Desktop/data.txt");
     myFile>>sd;
@@ -32,4 +51,11 @@ int main(int argc, const char * argv[]) {
     cout<<setw(6)<<names[1]<<endl;
     return 0;
 }
-
+//玫瑰
+//牡丹
+//月季
+//康乃馨
+//丁香
+//荷花
+//兰花
+//菊花

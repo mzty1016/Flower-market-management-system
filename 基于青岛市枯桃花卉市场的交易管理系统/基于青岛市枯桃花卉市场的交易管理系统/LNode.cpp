@@ -1,12 +1,10 @@
 //
-//  Global.cpp
+//  LNode.cpp
 //  基于青岛市枯桃花卉市场的交易管理系统
 //
-//  Created by 🍓XJK on 2019/12/6.
+//  Created by 🍓XJK on 2019/12/12.
 //  Copyright © 2019 🍓XJK. All rights reserved.
 //
 
-#include "Global.hpp"
+#include "LNode.hpp"
 
-const int MAXSIZE = 500;
-char sd[22];
