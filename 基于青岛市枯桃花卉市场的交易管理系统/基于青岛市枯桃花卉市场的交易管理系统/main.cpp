@@ -18,9 +18,10 @@
 using namespace std;
 extern char sd[22];
 
+HashTable hashtable;
+
 int main(int argc, const char * argv[]) {
-    HashTable hashtable;
-    hashtable.AddFlower();
+//    hashtable.AddFlower();
 //    string a;
 //    cin>>a;
 //    int b = a[0];
@@ -31,11 +32,13 @@ int main(int argc, const char * argv[]) {
 //    hashtable.AddFlower();
 //    hashtable.AddFlower();
 //    hashtable.AddFlower();
-    hashtable.AddFlower();
-    hashtable.AddFlower();
-    
+//    hashtable.AddFlower();
+//    hashtable.AddFlower();
+//    hashtable.AddFlower();
+//    hashtable.AddFlower();
+//    hashtable.AddFlower();
     ifstream myFile;
-    myFile.open("/Users/xumingfei/Desktop/data.txt");
+    myFile.open(FLOWERFILENAME);
     myFile>>sd;
     printf("%s\n", sd+3);
     printf("%d%d%d\n", sd[3],sd[4],sd[5]);
@@ -59,3 +62,5 @@ int main(int argc, const char * argv[]) {
 //荷花
 //兰花
 //菊花
+//满天星
+//仙人掌

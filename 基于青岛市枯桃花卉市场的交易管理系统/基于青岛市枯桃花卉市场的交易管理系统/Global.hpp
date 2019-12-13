@@ -10,7 +10,10 @@
 #define Global_hpp
 
 #include <stdio.h>
+#include <string>
 
 extern const int MAXSIZE;
+extern const std::string ADMINPASSERWORD;
+extern const std::string FLOWERFILENAME;
 
 #endif /* Global_hpp */
