@@ -9,6 +9,6 @@
 #include "Global.hpp"
 
 const int MAXSIZE = 500; //哈希表长度
-const std::string ADMINPASSERWORD = "12345"; //管理员密码
-const std::string FLOWERFILENAME = "/Users/xumingfei/Desktop/data.txt"; //存放花卉信息的文件名
+const string ADMINPASSERWORD = "12345"; //管理员密码
+const string FLOWERFILENAME = "/Users/xumingfei/Desktop/data.txt"; //存放花卉信息的文件名
 char sd[22];

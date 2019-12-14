@@ -12,8 +12,10 @@
 #include <stdio.h>
 #include <string>
 
+using namespace std;
+
 extern const int MAXSIZE;
-extern const std::string ADMINPASSERWORD;
-extern const std::string FLOWERFILENAME;
+extern const string ADMINPASSERWORD;
+extern const string FLOWERFILENAME;
 
 #endif /* Global_hpp */

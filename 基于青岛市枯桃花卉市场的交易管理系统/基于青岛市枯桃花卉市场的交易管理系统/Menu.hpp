@@ -16,6 +16,7 @@
 
 //（主）菜单类
 class MainMenu {
+ public:
     void LoadAd(); //加载广告
     void LoadAnnouncement(); //加载公告
     void ShowMenuHead(); //输出菜单头部
@@ -30,28 +31,28 @@ class MainMenu {
 
 //商家登录注册菜单类，继承菜单类
 class MerchantLogMenu : public MainMenu {
-    void MenuShow(); //输出菜单
-    void MenuRun(); //运行菜单
-    friend Merchant;
+ public:
+    void MenuShow(); //输出菜单内容
+    void MenuRun(const Merchant &merchant); //运行菜单
 };
 //商家操作菜单类，继承菜单类
 class MerchantDoMenu : public MainMenu {
-    void MenuShow(); //输出菜单
-    void MenuRun(); //运行菜单
-    friend Merchant;
+ public:
+    void MenuShow(); //输出菜单内容
+    void MenuRun(const Merchant &merchant); //运行菜单
 };
 
 //买家登录注册菜单类，继承菜单类
 class PurchaserLogMenu : public MainMenu {
-    void MenuShow(); //输出菜单
-    void MenuRun(); //运行菜单
-    friend Purchaser;
+ public:
+    void MenuShow(); //输出菜单内容
+    void MenuRun(const Purchaser &purchaser); //运行菜单
 };
 //买家操作菜单类，继承菜单类
 class PurchaserDoMenu : public MainMenu {
-    void MenuShow(); //输出菜单
-    void MenuRun(); //运行菜单
-    friend Purchaser;
+ public:
+    void MenuShow(); //输出菜单内容
+    void MenuRun(const Purchaser &purchaser); //运行菜单
 };
 
 
