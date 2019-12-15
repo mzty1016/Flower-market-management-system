@@ -37,7 +37,7 @@ class Merchant : virtual public User {
     bool Loggin(); //商家登录,登陆成功返回true，失败返回false
     void CheckFlower(); //查看自家上架花卉
     void AddFlower(); //上架花卉
-    void Deleteflower(); //下架花卉
+    void DeleteFlower(); //下架花卉
     void ModifyFlowerInfo(); //修改花卉信息
     void AutoDiscountFlower(); //花卉自动折扣
  private:
@@ -55,7 +55,7 @@ class Purchaser : virtual public User {
     void SearchFlower(); //查找花卉
     void SortFlower(); //花卉排序
     void ReserveFlower(); //花卉预约
-    void CheckReservationR(); //查看预约
+    void CheckReservation(); //查看预约
     void RecommendFlower(); //花卉推荐
     void NavigateShopAddress(); //花店地址导航
  private:

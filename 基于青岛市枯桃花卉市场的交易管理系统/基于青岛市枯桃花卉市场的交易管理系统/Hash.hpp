@@ -29,8 +29,8 @@ class HashTable {
     HashTable(); //默认构造函数;
     void InitHashTable(const string &file_name); //读取文件信息建立哈希表
     int Hash(const string &str); //哈希函数，返回一个哈希表的下标
-    void AddChain(int index, string &f_name, string &s_name, string &p_color, string &l_color, float f_price, int yy, int mm, int dd); //同名不同商家的花卉采用链地址法处理冲突
-    int DetectSecond(int index); //不同名的花卉采用二次探测法处理冲突
+    void AddChain(int index, string &f_name, string &s_name, string &p_color, float f_price, int yy, int mm, int dd); //同名不同商家的花卉采用链地址法处理冲突
+    const int DetectSecond(const int index) const ; //不同名的花卉采用二次探测法处理冲突
     void SaveHashTable(); //程序结束时析构函数调用该函数将信息写回文件，实现信息保存
     ~HashTable(); //析构函数
  private:

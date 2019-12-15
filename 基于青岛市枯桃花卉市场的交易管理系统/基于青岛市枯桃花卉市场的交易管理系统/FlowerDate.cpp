@@ -20,7 +20,7 @@ FlowerDate::FlowerDate(int year, int month, int day) {
     this->day = day;
 }
 //复制构造函数
-FlowerDate::FlowerDate(FlowerDate &flower_date) {
+FlowerDate::FlowerDate(const FlowerDate &flower_date) {
     year = flower_date.year;
     month = flower_date.month;
     day = flower_date.day;

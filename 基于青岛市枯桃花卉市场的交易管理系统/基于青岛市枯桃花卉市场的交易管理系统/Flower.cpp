@@ -13,23 +13,24 @@
 Flower::Flower() {
     flower_name = "";
     shop_name = "";
+    petal_color = "";
     flower_price = 0;
     //flower_date调用默认构造函数
 }
 //进行初始化的构造函数
-Flower::Flower(string &f_name, string &s_name, string &p_color, string &l_color, float f_price, int yy, int mm, int dd) : flower_date(yy, mm ,dd) {
+Flower::Flower(string &f_name, string &s_name, string &p_color, float f_price, int yy, int mm, int dd) : flower_date(yy, mm ,dd) {
     flower_name = f_name;
     shop_name = s_name;
     petal_color = p_color;
-    leaf_color = l_color;
+//    leaf_color = l_color;
     flower_price = f_price;
 }
 //设置花卉信息
-void Flower::SetFlowerInfo(string &f_name, string &s_name, string &p_color, string &l_color, float f_price, int yy, int mm, int dd) {
+void Flower::SetFlowerInfo(string &f_name, string &s_name, string &p_color, float f_price, int yy, int mm, int dd) {
     flower_name = f_name;
     s_name = s_name;
     petal_color = p_color;
-    leaf_color = l_color;
+//    leaf_color = l_color;
     flower_price = f_price;
     flower_date.SetDateInfo(yy, mm, dd);
 }
@@ -45,10 +46,10 @@ void Flower::ModifyFlowerDate(const FlowerDate &f_date) {
 void Flower::ModifyPetalColor(const string &p_color) {
     petal_color = p_color;
 }
-//修改花卉的叶子颜色
-void Flower::ModifyLeafColor(const string& l_color) {
-    leaf_color = l_color;
-}
+////修改花卉的叶子颜色
+//void Flower::ModifyLeafColor(const string& l_color) {
+//    leaf_color = l_color;
+//}
 //返回花卉名称
 const string& Flower::FlowerNameInfo() const {
     return flower_name;
@@ -69,10 +70,10 @@ const FlowerDate& Flower::FlowerDateInfo() const {
 const string& Flower::PetalColorInfo() const {
     return petal_color;
 }
-//返回花卉的叶子颜色
-const string& Flower::LeafColorInfo() const {
-    return leaf_color;
-}
+////返回花卉的叶子颜色
+//const string& Flower::LeafColorInfo() const {
+//    return leaf_color;
+//}
 //花类********************************************************************
 
 
