@@ -18,3 +18,7 @@ User::User(const string &user_name, const string &password) {
     this->user_name = user_name;
     this->password = password;
 }
+//返回用户名，用于对应买家文件名
+const string& User::UserNameInfo() const {
+    return user_name;
+}

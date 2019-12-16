@@ -24,6 +24,7 @@ class User {
  public:
     User(); //默认构造函数
     User(const string &user_name, const string &password); //构造函数
+    const string& UserNameInfo() const; //返回返回用户名，用于对应买家文件名
  private:
     string user_name; //用户名
     string password; //密码

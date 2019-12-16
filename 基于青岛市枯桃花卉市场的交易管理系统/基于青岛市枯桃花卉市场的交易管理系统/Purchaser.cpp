@@ -33,12 +33,10 @@ bool Purchaser::IsLogSuccess() {
 void Purchaser::Logging() {
     string user_name;
     string password;
-    string file_name1 = "/Users/xumingfei/Desktop/";
-    string file_name2 = ".txt";
     cout << "请输入用户名: ";
     cin >> user_name;
     //验证用户名是否存在
-    string file_name = file_name1 + user_name + file_name2;
+    string file_name = FILEADDRESS + user_name + FILETYPE;
     cout << "请输入密码（不小于8位）: ";
     cin >> password;
     if (password.length() < 8) {
@@ -226,13 +224,59 @@ void Purchaser::ReserveFlower() const {
         string shop_name;
         cout << "请输入您要预约花卉的花店名: ";
         cin >> shop_name;
+        fflush(stdin);
         p = hashtable.first[index];
         while (p != NULL) {
             if (p->flower->ShopNameInfo() == shop_name) {
                 cout << "请输入您要预约的数量: ";
                 int num;
                 cin >> num;
+                if (p->flower->FlowerNumberInfo() < num) {
+                    cout << "预约数量大于库存，预约失败" << endl;
+                } else {
+                    p->flower->ModifyFlowerNumber(p->flower->FlowerNumberInfo() - num);
+                    string file_name = FILEADDRESS + UserNameInfo() + FILETYPE;
+                    fstream InMyFile;
+                    InMyFile.open(file_name, ios::app);
+                    InMyFile.seekg(0, ios::end); //将文件指针指向文件末端
+                    streampos fp = InMyFile.tellg(); //fp为文件指针的偏移量
+                    if (int(fp) != 0) // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
+                        InMyFile<<endl;
+                    InMyFile<<p->flower->FlowerNameInfo()<<" "<<p->flower->ShopNameInfo()<<" "<<p->flower->PetalColorInfo()<<" "<<p->flower->FlowerPriceInfo()<<" "<<num<<" "<<p->flower->YearInfo()<<" "<<p->flower->MonthInfo()<<" "<<
+                    p->flower->DayInfo();
+                    InMyFile.close();
+                    cout << "预约成功" << endl;
+                    return ;
+                }
             }
         }
+        cout << "该商家不存在" << endl;
+        return ;
     }
+}
+void Purchaser::CheckReservation() const{
+    string flower_name;
+    string shop_name;
+    string flower_color;
+    float flower_price;
+    int flower_number;
+    int year, month, day;
+    fstream OutMyFile;
+    string file_name = FILEADDRESS + UserNameInfo() + FILETYPE;
+    OutMyFile.open(file_name);
+    OutMyFile.seekg(0, ios::end); //将文件指针指向文件末端
+    streampos fp = OutMyFile.tellg(); //fp为文件指针的偏移量
+    if (int(fp) == 0) { // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
+        cout << "您没有预约花卉" << endl;
+        return ;
+    }
+    OutMyFile.close();
+    OutMyFile.open(file_name);
+    cout << " 花卉名称 " << " 花店名 " << " 颜色 " << " 单价 " << "数量" << " 上架日期 " << endl;
+    while (!OutMyFile.eof()) {
+
+        OutMyFile>>flower_name>>shop_name>>flower_color>>flower_price>>flower_number>>year>>month>>day;
+        cout<<flower_name<<" "<<shop_name<<" "<<flower_color<<" "<<flower_price<<" "<<flower_number<<" "<<year<<"/"<<month<<"/"<<day<<endl;
+    }
+    OutMyFile.close();
 }

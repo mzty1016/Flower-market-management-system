@@ -204,10 +204,10 @@ void PurchaserDoMenu::MenuRun(const Purchaser &purchaser) {
             MenuRun(purchaser);
             break;
         case '3': //花卉预约
-            
+            purchaser.ReserveFlower();
             MenuRun(purchaser);
         case '4': //查看预约
-            
+            purchaser.CheckReservation();
             MenuRun(purchaser);
         case '5': //花卉推荐
             
