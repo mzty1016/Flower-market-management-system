@@ -9,14 +9,15 @@
 #ifndef Menu_hpp
 #define Menu_hpp
 
-#include <cstdio>
 #include <iostream>
 
-#include "User.hpp"
+#include "Merchant.hpp"
+#include "Purchaser.hpp"
 
 //（主）菜单类
 class MainMenu {
  public:
+    MainMenu();
     void LoadAd(); //加载广告
     void LoadAnnouncement(); //加载公告
     void ShowMenuHead(); //输出菜单头部
@@ -26,38 +27,38 @@ class MainMenu {
     void ShowAnnouncement(); //输出公告
     void ShowError(); //输出异常信息
     void MenuRun(); //运行菜单
-    void Input(); //从键盘接收指令
+    char Input(); //从键盘接收指令
 };
 
 //商家登录注册菜单类，继承菜单类
 class MerchantLogMenu : public MainMenu {
  public:
-    void MenuShow(); //输出菜单内容
-    void MenuRun(const Merchant &merchant); //运行菜单
+    void ShowMenuInfo(); //输出菜单内容
+    void MenuRun(); //运行菜单
 };
 //商家操作菜单类，继承菜单类
 class MerchantDoMenu : public MainMenu {
  public:
-    void MenuShow(); //输出菜单内容
+    void ShowMenuInfo(); //输出菜单内容
     void MenuRun(const Merchant &merchant); //运行菜单
 };
 
 //买家登录注册菜单类，继承菜单类
 class PurchaserLogMenu : public MainMenu {
  public:
-    void MenuShow(); //输出菜单内容
-    void MenuRun(const Purchaser &purchaser); //运行菜单
+    void ShowMenuInfo(); //输出菜单内容
+    void MenuRun(); //运行菜单
 };
 //买家操作菜单类，继承菜单类
 class PurchaserDoMenu : public MainMenu {
  public:
-    void MenuShow(); //输出菜单内容
+    void ShowMenuInfo(); //输出菜单内容
     void MenuRun(const Purchaser &purchaser); //运行菜单
 };
 //管理员操作菜单类，继承菜单类
 class AdminDoMenu : public MainMenu {
 public:
-    void MenuShow(); //输出菜单内容
+    void ShowMenuInfo(); //输出菜单内容
     void MenuRun(); //运行菜单
 };
 

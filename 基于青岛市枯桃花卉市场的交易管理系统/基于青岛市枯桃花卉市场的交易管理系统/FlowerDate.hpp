@@ -9,7 +9,9 @@
 #ifndef FlowerDate_hpp
 #define FlowerDate_hpp
 
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 //花卉上架日期类
 class FlowerDate {

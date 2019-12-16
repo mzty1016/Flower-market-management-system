@@ -8,3 +8,13 @@
 
 #include "User.hpp"
 
+//默认构造函数
+User::User() {
+    user_name = "";
+    password = "";
+}
+//进行初始化的构造函数
+User::User(const string &user_name, const string &password) {
+    this->user_name = user_name;
+    this->password = password;
+}
