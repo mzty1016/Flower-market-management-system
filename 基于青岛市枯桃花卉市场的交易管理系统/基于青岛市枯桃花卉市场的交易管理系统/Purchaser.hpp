@@ -30,6 +30,7 @@ public:
     void ReserveFlower() const; //花卉预约
     void CheckReservation() const; //查看预约
     void RecommendFlower() const; //花卉推荐
+    const int DateCompare(int yy1, int mm1, int dd1, int yy2, int mm2, int dd2) const; //比较日期返回差值(yy2/mm2/dd2 - yy1/mm1/dd1)
     void NavigateShopAddress() const; //花店地址导航
     void ModifyLogStatus(bool judge);
     bool IsLogSuccess();

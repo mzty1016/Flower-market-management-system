@@ -13,6 +13,7 @@
 
 #include "Merchant.hpp"
 #include "Purchaser.hpp"
+#include "Admin.hpp"
 
 //（主）菜单类
 class MainMenu {
@@ -23,8 +24,8 @@ class MainMenu {
     void ShowMenuHead(); //输出菜单头部
     void ShowMenuInfo(); //输出菜单内容
     void ShowMenuBottom(); //输出菜单底部
-    void ShowAd(); //输出广告内容
-    void ShowAnnouncement(); //输出公告
+    void ShowAd(char ad[]); //输出广告内容
+    void ShowAnnouncement(char an[]); //输出公告
     void ShowError(); //输出异常信息
     void MenuRun(); //运行菜单
     char Input(); //从键盘接收指令
@@ -54,6 +55,12 @@ class PurchaserDoMenu : public MainMenu {
  public:
     void ShowMenuInfo(); //输出菜单内容
     void MenuRun(const Purchaser &purchaser); //运行菜单
+};
+//管理员登录菜单类，继承菜单类
+class AdminLogMenu : public MainMenu {
+public:
+    void ShowMenuInfo(); //输出菜单内容
+    void MenuRun(); //运行菜单
 };
 //管理员操作菜单类，继承菜单类
 class AdminDoMenu : public MainMenu {

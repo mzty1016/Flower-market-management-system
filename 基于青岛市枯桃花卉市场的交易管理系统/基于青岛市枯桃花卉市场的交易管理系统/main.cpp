@@ -19,12 +19,50 @@
 using namespace std;
 
 HashTable hashtable;
+char leftad1[30], leftad2[30], leftad3[30], leftad4[30], leftad5[30], leftad6[30], leftad7[30], leftad8[30], leftad9[30], leftad10[30];
+char rightad1[30], rightad2[30], rightad3[30], rightad4[30], rightad5[30], rightad6[30], rightad7[30], rightad8[30], rightad9[30], rightad10[30];
+char announcement1[80], announcement2[80], announcement3[80], announcement4[80], announcement5[80];
 
-int main(int argc, const char * argv[]) {
+int main() {
     hashtable.InitHashTable();
-//    hashtable.InitHashTable();
     MainMenu M;
-    M.MenuRun();
+//    M.LoadAnnouncement();
+//    M.ShowAnnouncement(announcement1);
+//    cout << endl;
+//    M.ShowAnnouncement(announcement2);
+//    cout << endl;
+//    M.MenuRun();
+//    ifstream fl;
+//    fl.open(LEFT_AD_FILE_NAME);
+//    string tg;
+//    char ch1, ch2, ch3;
+//    ch1 = fl.get();
+//    ch2 = fl.get();
+//    ch3 = fl.get();
+//    cout<<ch1<<ch2<<ch3<<endl;
+////    hashtable.InitHashTable();
+//    fl.close();
+//    M.LoadAd();
+//    M.ShowAd(leftad1);
+//    cout << endl;
+//    M.ShowAd(leftad2);
+//    cout << endl;
+//    M.ShowAd(leftad3);
+//    cout << endl;
+//    M.ShowAd(leftad4);
+//    cout << endl;
+//    M.ShowAd(leftad5);
+//    cout << endl;
+//    M.ShowAd(leftad6);
+//    cout << endl;
+//    M.ShowAd(leftad7);
+//    cout << endl;
+//    M.ShowAd(leftad8);
+//    cout << endl;
+//    M.ShowAd(leftad9);
+//    cout << endl;
+//    M.ShowAd(leftad10);
+//    cout << endl;
 //    string g = "dfddf";
 //    hashtable.InitHashTable();
 //    hashtable.AddFlower();

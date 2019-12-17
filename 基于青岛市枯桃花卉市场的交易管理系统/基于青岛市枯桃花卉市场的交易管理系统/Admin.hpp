@@ -9,21 +9,30 @@
 #ifndef Admin_hpp
 #define Admin_hpp
 
-#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <fstream>
 
-////管理员类,可进行任何操作,方便对系统进行测试，继承买家、卖家类，此时买家卖家类要设置虚基类
-//class Admin : public Merchant, public Purchaser {
-// public:
-//    Admin();
-//    bool Loggin(); //管理员登录，登录成功返回true，失败返回false
-//    void Announce(); //发布公告
-//    void SetAd(); //设置广告
-//    void RetrievePassword(); //找回密码
-//    void ClearLeftAd(); //清空左广告栏并显示: 广告位招租
-//    void ClearrightAd(); //清空右广告栏并显示: 广告位招租
-//    void ClearAnnouncement(); //清空公告
-// private:
-//    const string admin_password = ADMINPASSERWORD; //管理员密码
-//};
+#include "Global.hpp"
+#include "Flower.hpp"
+#include "Hash.hpp"
+#include "User.hpp"
+#include "Merchant.hpp"
+#include "Purchaser.hpp"
+
+//管理员类,可进行任何操作,方便对系统进行测试，继承买家、卖家类，此时买家卖家类要设置虚基类
+class Admin : public Merchant, public Purchaser {
+ public:
+    Admin();
+    bool Loggin(); //管理员登录，登录成功返回true，失败返回false
+    void Announce(); //发布公告
+    void SetAd(); //设置广告
+    void ClearAd(); //广告一键清空并显示: 广告位招租
+    void MerchantRetrievePassword(); //商家找回密码
+    void PurchaserRetrievePassword(); //买家找回密码
+    void ClearAnnouncement(); //清空公告
+ private:
+    const string admin_password = ADMIN_PASSERWORD; //管理员密码
+};
 
 #endif /* Admin_hpp */

@@ -82,7 +82,7 @@ const int HashTable::DetectSecond(const int index, int times) const {
 //读取文件建立哈希表
 void HashTable::InitHashTable() {
     ifstream OutMyFile;
-    OutMyFile.open(FLOWERFILENAME);
+    OutMyFile.open(FLOWER_FILE_NAME);
     while (!OutMyFile.eof()) {
         LNode *p = new LNode;
         string flower_name; //花卉名称
@@ -182,7 +182,7 @@ int HashTable::SearchFlower(string &flower_name, int times) {
 void HashTable::SaveHashTable() {
     bool flag = false; //控制写入文件的开头时是否换行
     ofstream InMyFile;
-    InMyFile.open(FLOWERFILENAME);
+    InMyFile.open(FLOWER_FILE_NAME);
     for (int i = 0; i < MAXSIZE; ++i) {
         LNode *p = first[i];
         while (p != NULL) {

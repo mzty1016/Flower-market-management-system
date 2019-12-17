@@ -45,9 +45,10 @@ void Merchant::Logging() {
     }
     cout << "请输入花店名: ";
     cin >> shop_name;
+    fflush(stdin);
     //验证花店名已存在
     fstream InMyFile;
-    InMyFile.open(MERCHANTFILENAME, ios::app);
+    InMyFile.open(MERCHANT_FILE_NAME, ios::app);
     InMyFile.seekg(0, ios::end); //将文件指针指向文件末端
     streampos fp = InMyFile.tellg(); //fp为文件指针的偏移量
     if (int(fp) != 0) // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
@@ -63,11 +64,12 @@ Merchant Merchant::Loggin() {
     cin >> user_name;
     cout << "请输入密码: ";
     cin >> password;
+    fflush(stdin);
     string file_user_name; //文件中的用户名
     string file_password; //文件中的密码
     string file_shop_name; //文件中的店名
     ifstream OutMyFile;
-    OutMyFile.open(MERCHANTFILENAME);
+    OutMyFile.open(MERCHANT_FILE_NAME);
     while (!OutMyFile.eof()) {
         OutMyFile>>file_user_name>>file_password>>file_shop_name;
         if (file_user_name == user_name) {
@@ -163,6 +165,7 @@ void Merchant::ModifyFlowerInfo() const {
                 int number;
                 int yy, mm, dd;
                 cin >> ch;
+                fflush(stdin);
                 switch (ch) {
                     case '1':
                         cout << "当前花卉颜色为: " << p->flower->PetalColorInfo() <<endl;
@@ -222,6 +225,7 @@ void Merchant::AutoDiscountFlower() const {
     cout << "请输入折扣(0.0——1.0): ";
     float discount;
     cin >> discount;
+    fflush(stdin);
     for (int i = 0; i < MAXSIZE; ++i) {
         LNode *p = hashtable.first[i];
         while (p != NULL) {
