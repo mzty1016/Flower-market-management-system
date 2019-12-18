@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/main.cpp"
-            timestampString = "598258455.354214"
+            timestampString = "598343456.073401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/main.cpp"
-            timestampString = "598258455.354955"
+            timestampString = "598343456.074054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/main.cpp"
-            timestampString = "598258455.355554"
+            timestampString = "598343456.074639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/main.cpp"
-            timestampString = "598258455.356137"
+            timestampString = "598343456.075135"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Menu.cpp"
-            timestampString = "598258455.356814"
+            timestampString = "598343456.075635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "MerchantLogMenu::MenuRun()"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "MerchantLogMenu::ShowMenuInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Menu.cpp"
-            timestampString = "598258455.35697"
+            timestampString = "598343456.07576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "MerchantLogMenu::MenuRun()"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "MerchantLogMenu::ShowMenuInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Merchant.cpp"
-            timestampString = "598258455.357183"
+            timestampString = "598336031.829941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Merchant.cpp"
-            timestampString = "598258455.357265"
+            timestampString = "598336031.830078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "138"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Purchaser.cpp"
-            timestampString = "598258455.357348"
+            timestampString = "598332951.761536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Menu.cpp"
-            timestampString = "598258455.357439"
+            timestampString = "598343456.076089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "MainMenu::MenuRun()"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,12 +186,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Menu.cpp"
-            timestampString = "598258455.357531"
+            timestampString = "598343456.0762579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "MainMenu::ShowAd(char ad[])"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Admin.cpp"
+            timestampString = "598343456.07637"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "Admin::MerchantRetrievePassword()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Admin.cpp"
+            timestampString = "598343456.076511"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "Admin::MerchantRetrievePassword()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Admin.cpp"
+            timestampString = "598343456.076604"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "Admin::MerchantRetrievePassword()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Menu.cpp"
+            timestampString = "598343456.0767421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "MainMenu::ShowAnnouncement(char an[])"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Menu.cpp"
+            timestampString = "598343456.076839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "MainMenu::LoadAnnouncement()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x57fa;&#x4e8e;&#x9752;&#x5c9b;&#x5e02;&#x67af;&#x6843;&#x82b1;&#x5349;&#x5e02;&#x573a;&#x7684;&#x4ea4;&#x6613;&#x7ba1;&#x7406;&#x7cfb;&#x7edf;/Menu.cpp"
+            timestampString = "598343456.076948"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "MainMenu::ShowMenuInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -26,6 +26,7 @@ class Admin : public Merchant, public Purchaser {
     Admin();
     bool Loggin(); //管理员登录，登录成功返回true，失败返回false
     void Announce(); //发布公告
+    void ClearAn(); //清空公告
     void SetAd(); //设置广告
     void ClearAd(); //广告一键清空并显示: 广告位招租
     void MerchantRetrievePassword(); //商家找回密码

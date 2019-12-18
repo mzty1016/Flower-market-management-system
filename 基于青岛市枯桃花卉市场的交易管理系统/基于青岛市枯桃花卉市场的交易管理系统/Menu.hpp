@@ -47,6 +47,8 @@ class MerchantDoMenu : public MainMenu {
 //买家登录注册菜单类，继承菜单类
 class PurchaserLogMenu : public MainMenu {
  public:
+    int extracted();
+    
     void ShowMenuInfo(); //输出菜单内容
     void MenuRun(); //运行菜单
 };

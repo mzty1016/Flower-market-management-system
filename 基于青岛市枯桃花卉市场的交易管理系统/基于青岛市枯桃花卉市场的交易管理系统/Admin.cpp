@@ -8,6 +8,8 @@
 
 #include "Admin.hpp"
 
+extern char announcement1[120], announcement2[120], announcement3[120], announcement4[120], announcement5[120];
+
 //默认构造函数
 Admin::Admin() { }
 //管理员登录
@@ -27,10 +29,25 @@ void Admin::Announce() {
     cout << "请输入公告内容: ";
     string announcement;
     cin >> announcement;
+    fflush(stdin);
     ofstream InMyFile;
     InMyFile.open(ANNOUNCEMENT_FILE_NAME);
     InMyFile<<announcement;
+    InMyFile.close();
     cout << "公告发布成功" << endl;
+}
+//清空公告
+void Admin::ClearAn() {
+    for (int i = 1; i < 120; i++)
+        announcement1[i] = '\0';
+    for (int i = 1; i < 120; i++)
+        announcement2[i] = '\0';
+    for (int i = 1; i < 120; i++)
+        announcement3[i] = '\0';
+    for (int i = 1; i < 120; i++)
+        announcement4[i] = '\0';
+    for (int i = 1; i < 120; i++)
+        announcement5[i] = '\0';
 }
 //广告设置
 void Admin::SetAd() {
@@ -42,6 +59,7 @@ void Admin::SetAd() {
         cout << "请输入新的左栏广告(小于80字): ";
         string ad;
         cin >> ad;
+        fflush(stdin);
         ofstream InMyFile;
         InMyFile.open(LEFT_AD_FILE_NAME);
         InMyFile<<ad;
@@ -50,6 +68,7 @@ void Admin::SetAd() {
         cout << "请输入新的右栏广告(小于80字): ";
         string ad;
         cin >> ad;
+        fflush(stdin);
         ofstream InMyFile;
         InMyFile.open(RIGHT_AD_FILE_NAME);
         InMyFile<<ad;
@@ -76,11 +95,66 @@ void Admin::ClearAd() {
         cout << "右栏广告清空成功" << endl;
     }
 }
+//买家找回密码
+void Admin::PurchaserRetrievePassword() {
+    cout << "请输入用户名: ";
+    string user__name;
+    cin >> user__name;
+    fflush(stdin);
+    typedef struct node {
+        string username;
+        string password;
+        struct node *next;
+    }Node;
+    Node *L = new Node;
+    Node *p = L;
+    bool flag = false; //判断是否找到该用户
+    ifstream OutMyFile;
+    OutMyFile.open(PURCHASER_FILE_NAME);
+    while (!OutMyFile.eof()) {
+        Node *q = new Node;
+        q->next = NULL;
+        OutMyFile>>q->username>>q->password;
+        if (q->username == user__name) {
+            string password1, password2;
+            cout << "请输入修改后的密码: " << endl;
+            cin >> password1;
+            cout << "请再次输入密码: " << endl;
+            cin >> password2;
+            fflush(stdin);
+            if (password1 == password2) {
+                flag = true;
+                q->password = password1;
+                cout << "密码修改成功" << endl;
+            } else {
+                cout << "两次输入的密码不一致，修改失败" << endl;
+            }
+        }
+        p->next = q;
+        p = q;
+    }
+    OutMyFile.close();
+    if (flag == false)
+        cout << "未找到该用户" << endl;
+    ofstream InMyFile;
+    InMyFile.open(PURCHASER_FILE_NAME);
+    L = L->next;
+    while (L != NULL) {
+        Node *p = L;
+        InMyFile<<p->username<<" "<<p->password;
+        if (L->next != NULL)
+            InMyFile<<endl;
+        L = L->next;
+        delete p;
+    }
+    InMyFile.close();
+}
 //商家找回密码
 void Admin::MerchantRetrievePassword() {
     cout << "请输入用户名: ";
     string user__name;
     cin >> user__name;
+    fflush(stdin);
     typedef struct node {
         string username;
         string password;
@@ -88,10 +162,45 @@ void Admin::MerchantRetrievePassword() {
         struct node *next;
     }Node;
     Node *L = new Node;
-    Node *p = L->next;
+    Node *p = L;
+    bool flag = false; //判断是否找到该用户
     ifstream OutMyFile;
     OutMyFile.open(MERCHANT_FILE_NAME);
     while (!OutMyFile.eof()) {
-        
+        Node *q = new Node;
+        q->next = NULL;
+        OutMyFile>>q->username>>q->password>>q->shopname;
+        if (q->username == user__name) {
+            string password1, password2;
+            cout << "请输入修改后的密码: " << endl;
+            cin >> password1;
+            cout << "请再次输入密码: " << endl;
+            cin >> password2;
+            fflush(stdin);
+            if (password1 == password2) {
+                flag = true;
+                q->password = password1;
+                cout << "密码修改成功" << endl;
+            } else {
+                cout << "两次输入的密码不一致，修改失败" << endl;
+            }
+        }
+        p->next = q;
+        p = q;
     }
+    OutMyFile.close();
+    if (flag == false)
+        cout << "未找到该用户" << endl;
+    ofstream InMyFile;
+    InMyFile.open(MERCHANT_FILE_NAME);
+    L = L->next;
+    while (L != NULL) {
+        Node *p = L;
+        InMyFile<<p->username<<" "<<p->password<<" "<<p->shopname;
+        if (L->next != NULL)
+            InMyFile<<endl;
+        L = L->next;
+        delete p;
+    }
+    InMyFile.close();
 }

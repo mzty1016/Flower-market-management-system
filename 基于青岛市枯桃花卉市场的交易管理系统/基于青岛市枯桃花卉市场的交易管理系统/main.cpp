@@ -21,12 +21,20 @@ using namespace std;
 HashTable hashtable;
 char leftad1[30], leftad2[30], leftad3[30], leftad4[30], leftad5[30], leftad6[30], leftad7[30], leftad8[30], leftad9[30], leftad10[30];
 char rightad1[30], rightad2[30], rightad3[30], rightad4[30], rightad5[30], rightad6[30], rightad7[30], rightad8[30], rightad9[30], rightad10[30];
-char announcement1[80], announcement2[80], announcement3[80], announcement4[80], announcement5[80];
+char announcement1[100], announcement2[100], announcement3[100], announcement4[100], announcement5[100];
 
 int main() {
     hashtable.InitHashTable();
     MainMenu M;
-//    M.LoadAnnouncement();
+    M.LoadAd();
+    M.LoadAnnouncement();
+    M.MenuRun();
+//    string dd = "，";
+//    cout << dd[0] << dd[1] << dd[2] << endl;
+    
+    
+    
+    
 //    M.ShowAnnouncement(announcement1);
 //    cout << endl;
 //    M.ShowAnnouncement(announcement2);

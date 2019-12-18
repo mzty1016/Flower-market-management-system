@@ -18,11 +18,32 @@ extern char announcement1[100], announcement2[100], announcement3[100], announce
 MainMenu::MainMenu() { }
 //输出菜单头部
 void MainMenu::ShowMenuHead() {
-    cout << "==" << endl;
+    cout<<endl; cout<<"                ";
+    cout<<STAR<<" "<<SOFTWARE<<" "<<STAR<<NEW_LINE<<NEW_LINE;
 }
 //输出菜单底部
 void MainMenu::ShowMenuBottom() {
-    cout << "__" << endl;
+    cout << "\n\n                                                  【公告】 \n";
+//    Sleep(5);
+    cout << "                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n";
+//    Sleep(5);
+    cout << "            {@}"; ShowAnnouncement(announcement1); cout << "       {@}\n";
+//    Sleep(5);
+    cout << "             | "; ShowAnnouncement(announcement2); cout << "        |\n";
+//    Sleep(5);
+    
+    cout << "            \\|/"; ShowAnnouncement(announcement3); cout << "       \\|/\n";
+//    Sleep(5);
+
+    cout << "             | "; ShowAnnouncement(announcement4); cout << "        |\n";
+//    Sleep(5);
+
+    cout << "             | "; ShowAnnouncement(announcement5); cout << "        |\n";
+//    Sleep(5);
+    cout << "                     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
+//    Sleep(5);
+    cout << "                                                    :";
+//    Sleep(5);
 }
 void MainMenu::ShowError() {
     fflush(stdin); //先清空缓存区
@@ -35,6 +56,7 @@ char MainMenu::Input() {
     fflush(stdin);
     return ch;
 }
+//加载广告
 void MainMenu::LoadAd() {
     ifstream LeftAd, RightAd;
     LeftAd.open(LEFT_AD_FILE_NAME);
@@ -93,13 +115,16 @@ void MainMenu::LoadAd() {
     }
 }
 void MainMenu::ShowAd(char ad[]) {
+    cout << "* ";
     for (int i = 0; i < 24; i += 3) {
         if (ad[i] != '\0' && ad[i+1] != '\0' && ad[i+2] != '\0')
             cout << ad[i] << ad[i+1] << ad[i+2];
         else if (i % 3 == 0)
             cout << "　";
     }
+    cout << " *";
 }
+//加载公告
 void MainMenu::LoadAnnouncement() {
     ifstream Announcement;
     Announcement.open(ANNOUNCEMENT_FILE_NAME);
@@ -111,7 +136,7 @@ void MainMenu::LoadAnnouncement() {
             announcement2[i%90] = Announcement.get();
         else if (i >= 180 && i < 270)
             announcement3[i%90] = Announcement.get();
-        else if (i >= 270  && i < 360)
+        else if (i >= 270 && i < 360)
             announcement4[i%90] = Announcement.get();
         else if (i >= 360 && i < 450)
             announcement5[i%90] = Announcement.get();
@@ -121,23 +146,43 @@ void MainMenu::LoadAnnouncement() {
     }
 }
 void MainMenu::ShowAnnouncement(char an[]){
-    printf("      ");
-    printf("┃ ");
-    int i;
-    for(i = 0; i < 90; i += 3){
+    cout<<("      ");
+    cout<<("┃ ");
+    for(int i = 0; i < 90; i += 3){
         if(an[i] != '\0' && an[i+1] != '\0' && an[i+2] != '\0')
             cout << an[i] << an[i+1] << an[i+2];
         else if (i % 3 == 0)
             cout << "　";
     }
-    printf(" ┃");
+    cout<<(" ┃");
 }
 //输出主菜单信息
 void MainMenu::ShowMenuInfo() {
-    cout << "1.买家入口" <<endl;
-    cout << "2.商家入口" <<endl;
-    cout << "3.管理员入口" <<endl;
-    cout << "4.退出系统" <<endl;
+    //    Sleep(5);
+    cout<<TT;cout<<KK; cout<<("    ╔════════════════════════════════════════════════╗     ");cout<<KK; cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad1); cout<<"    ║                  ①  买家入口                   ║     "; ShowAd(rightad1); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad2); cout<<"    ║                                                ║     ";ShowAd(rightad2); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad3); cout<<"    ║                  ②  商家入口                   ║     "; ShowAd(rightad3); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad4); cout<<"    ║                                                ║     ";ShowAd(rightad4); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad5); cout<<"    ║                  ③  管理员入口                 ║     "; ShowAd(rightad5); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad6); cout<<"    ║                                                ║     ";ShowAd(rightad6); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad7); cout<<"    ║                  ④  版本信息　                 ║     "; ShowAd(rightad7); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad8); cout<<"    ║                                                ║     ";ShowAd(rightad8); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad9); cout<<"    ║                  ⑤  退出系统                   ║     "; ShowAd(rightad9); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad10); cout<<"    ║                 请按提示进行输入:              ║     ";ShowAd(rightad10); cout<<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<("    ╚════════════════════════════════════════════════╝     ");cout<<KK; cout<<endl;
+//    Sleep(5);
 }
 //主菜单运行
 void MainMenu::MenuRun() {
@@ -173,10 +218,31 @@ void MainMenu::MenuRun() {
 //商家====================================================================
 //输出商家入驻、登录菜单
 void MerchantLogMenu::ShowMenuInfo() {
-    cout << "1.商家登录" <<endl;
-    cout << "2.商家入驻" <<endl;
-    cout << "3.返回" <<endl;
-    cout << "4.退出系统" <<endl;
+    //    Sleep(5);
+    cout<<TT;cout<<KK; cout<<"    ╔════════════════════════════════════════════════╗     ";cout<<KK; cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad1); cout<<"    ║                                                ║     "; ShowAd(rightad1); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad2); cout<<"    ║                  ①  商家登录                   ║     ";ShowAd(rightad2); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad3); cout<<"    ║                                                ║     "; ShowAd(rightad3); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad4); cout<<"    ║                  ②  商家入驻                   ║     ";ShowAd(rightad4); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad5); cout<<"    ║                                                ║     "; ShowAd(rightad5); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad6); cout<<"    ║                  ③   返回                      ║     ";ShowAd(rightad6); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad7); cout<<"    ║                                                ║     "; ShowAd(rightad7); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad8); cout<<"    ║                  ④  退出系统                   ║     ";ShowAd(rightad8); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad9); cout<<"    ║                                                ║     "; ShowAd(rightad9); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad10); cout<<"    ║                 请按提示进行输入:              ║     ";ShowAd(rightad10); cout<<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<"    ╚════════════════════════════════════════════════╝     "; cout<<KK; cout<<endl;
+//    Sleep(5);
 }
 //商家入驻、登录菜单运行
 void MerchantLogMenu::MenuRun() {
@@ -209,13 +275,31 @@ void MerchantLogMenu::MenuRun() {
 }
 //输出商家操作菜单
 void MerchantDoMenu::ShowMenuInfo() {
-    cout << "1.查看上架花卉" <<endl;
-    cout << "2.花卉上架" <<endl;
-    cout << "3.花卉下架" <<endl;
-    cout << "4.花卉信息修改" <<endl;
-    cout << "5.花卉自动折扣" <<endl;
-    cout << "6.返回" <<endl;
-    cout << "7.退出系统" <<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK;    cout<<"    ╔════════════════════════════════════════════════╗     "; cout<<KK;     cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad1); cout<<"    ║                ①  查看所有花卉信息             ║     ";ShowAd(rightad1); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad2); cout<<"    ║                ②  花卉上架                     ║     ";ShowAd(rightad2); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad3); cout<<"    ║                ③  花卉下架                     ║     ";ShowAd(rightad3); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad4); cout<<"    ║                ④  花卉信息修改                 ║     ";ShowAd(rightad4); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad5); cout<<"    ║                ⑤  花卉自动折扣                 ║     "; ShowAd(rightad5); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad6); cout<<"    ║                ⑥  返回                         ║     ";ShowAd(rightad6); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad7); cout<<"    ║                ⑦  退出系统                     ║     "; ShowAd(rightad7); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad8); cout<<"    ║                     　　                       ║     ";ShowAd(rightad8); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad9); cout<<"    ║                请按提示进行输入:               ║     "; ShowAd(rightad9); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad10);cout<<"    ║                                                ║     ";ShowAd(rightad10); cout<<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<"    ╚════════════════════════════════════════════════╝     ";cout<<KK; cout<<endl;
+//    Sleep(5);
 }
 //商家操作菜单运行
 void MerchantDoMenu::MenuRun(const Merchant &merchant) {
@@ -259,10 +343,31 @@ void MerchantDoMenu::MenuRun(const Merchant &merchant) {
 //买家====================================================================
 //输出买家注册、登录菜单
 void PurchaserLogMenu::ShowMenuInfo() {
-    cout << "1.买家登录" <<endl;
-    cout << "2.买家注册" <<endl;
-    cout << "3.返回" <<endl;
-    cout << "4.退出系统" <<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<"    ╔════════════════════════════════════════════════╗     ";cout<<KK; cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad1); cout<<"    ║                                                ║     "; ShowAd(rightad1); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad2); cout<<"    ║                  ①   登录                      ║     ";ShowAd(rightad2); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad3); cout<<"    ║                                                ║     "; ShowAd(rightad3); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad4); cout<<"    ║                  ②   注册                      ║     ";ShowAd(rightad4); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad5); cout<<"    ║                                                ║     "; ShowAd(rightad5); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad6); cout<<"    ║                  ③   返回                      ║     ";ShowAd(rightad6); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad7); cout<<"    ║                                                ║     "; ShowAd(rightad7); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad8); cout<<"    ║                  ④  退出系统                   ║     ";ShowAd(rightad8); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad9); cout<<"    ║                                                ║     "; ShowAd(rightad9); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad10);cout<<"    ║                 请按提示进行输入:              ║     ";ShowAd(rightad10); cout<<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<"    ╚════════════════════════════════════════════════╝     ";cout<<KK; cout<<endl;
+//    Sleep(5);
 }
 //买家入驻、登录菜单运行
 void PurchaserLogMenu::MenuRun() {
@@ -295,15 +400,31 @@ void PurchaserLogMenu::MenuRun() {
 }
 //输出买家操作菜单
 void PurchaserDoMenu::ShowMenuInfo() {
-    cout << "1.查看所有上架花卉" <<endl;
-    cout << "2.查找花卉" <<endl;
-    cout << "3.花卉预约" <<endl;
-    cout << "4.查看预约" <<endl;
-    cout << "5.花卉推荐" <<endl;
-    cout << "6.花店地址导航" <<endl;
-    cout << "7.返回" <<endl;
-    cout << "8.退出系统" <<endl;
-    
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<"    ╔════════════════════════════════════════════════╗     ";cout<<KK; cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad1); cout<<"    ║                 ①  查看所有上架花卉            ║     "; ShowAd(rightad1); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad2); cout<<"    ║                 ②  花卉查找                    ║     ";ShowAd(rightad2); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad3); cout<<"    ║                 ③  花卉预约                    ║     "; ShowAd(rightad3); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad4); cout<<"    ║                 ④  查看预约                    ║     ";ShowAd(rightad4); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad5); cout<<"    ║                 ⑤  花卉推荐                    ║     "; ShowAd(rightad5); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad6); cout<<"    ║                 ⑥  花店地址导航                ║     ";ShowAd(rightad6); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad7); cout<<"    ║                 ⑦  退出登录                    ║     "; ShowAd(rightad7); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad8); cout<<"    ║                 ⑧  退出系统                    ║     ";ShowAd(rightad8); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad9); cout<<"    ║                                                ║     "; ShowAd(rightad9); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad10);cout<<"    ║                 请按提示进行输入:              ║     ";ShowAd(rightad10); cout<<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<"    ╚════════════════════════════════════════════════╝     ";cout<<KK; cout<<("\n");
+//    Sleep(5);
 }
 //买家操作菜单运行
 void PurchaserDoMenu::MenuRun(const Purchaser &purchaser) {
@@ -383,6 +504,7 @@ void AdminDoMenu::MenuRun() {
     char ch = Input();
     switch (ch) {
         case '1': //发布公告
+            admin.ClearAn();
             admin.Announce();
             LoadAnnouncement();
             MenuRun();
@@ -398,11 +520,11 @@ void AdminDoMenu::MenuRun() {
             MenuRun();
             break;
         case '4': //买家找回密码
-            
+            admin.PurchaserRetrievePassword();
             MenuRun();
             break;
         case '5': //商家找回密码
-            
+            admin.MerchantRetrievePassword();
             MenuRun();
             break;
         case '6': //系统测试
