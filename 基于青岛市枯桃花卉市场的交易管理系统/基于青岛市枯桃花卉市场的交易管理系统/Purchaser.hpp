@@ -17,6 +17,7 @@
 #include "Flower.hpp"
 #include "Hash.hpp"
 #include "User.hpp"
+#include "Map.hpp"
 
 //买家类,继承用户类
 class Purchaser : virtual public User {

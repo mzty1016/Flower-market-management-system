@@ -119,6 +119,11 @@ void Admin::PurchaserRetrievePassword() {
             string password1, password2;
             cout << "请输入修改后的密码: " << endl;
             cin >> password1;
+            if (password1.length() < 8) {
+                cout << "密码长度小于8位，修改失败" << endl;
+                OutMyFile.close();
+                return ;
+            }
             cout << "请再次输入密码: " << endl;
             cin >> password2;
             fflush(stdin);
@@ -128,6 +133,8 @@ void Admin::PurchaserRetrievePassword() {
                 cout << "密码修改成功" << endl;
             } else {
                 cout << "两次输入的密码不一致，修改失败" << endl;
+                OutMyFile.close();
+                return ;
             }
         }
         p->next = q;
@@ -174,6 +181,11 @@ void Admin::MerchantRetrievePassword() {
             string password1, password2;
             cout << "请输入修改后的密码: " << endl;
             cin >> password1;
+            if (password1.length() < 8) {
+                cout << "密码长度小于8位，修改失败" << endl;
+                OutMyFile.close();
+                return ;
+            }
             cout << "请再次输入密码: " << endl;
             cin >> password2;
             fflush(stdin);
@@ -183,6 +195,8 @@ void Admin::MerchantRetrievePassword() {
                 cout << "密码修改成功" << endl;
             } else {
                 cout << "两次输入的密码不一致，修改失败" << endl;
+                OutMyFile.close();
+                return ;
             }
         }
         p->next = q;

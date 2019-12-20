@@ -33,27 +33,49 @@ bool Purchaser::IsLogSuccess() {
 //买家注册
 void Purchaser::Logging() {
     string user_name;
-    string password;
+    string password1, password2;
     cout << "请输入用户名: ";
     cin >> user_name;
     //验证用户名是否存在
+    //验证用户名是否存在
+    ifstream InMyFile1;
+    InMyFile1.open(PURCHASER_FILE_NAME);
+    string file_user_name, file_password;
+    while (!InMyFile1.eof()) {
+        InMyFile1>>file_user_name>>file_password;
+        if (file_user_name == user_name) {
+            cout << "该用户名已存在， 注册失败" << endl;
+            InMyFile1.close();
+            fflush(stdin);
+            return ;
+        }
+    }
+    InMyFile1.close();
     string file_name = FILE_ADDRESS + user_name + FILE_TYPE;
     cout << "请输入密码（不小于8位）: ";
-    cin >> password;
+    cin >> password1;
     fflush(stdin);
-    if (password.length() < 8) {
+    if (password1.length() < 8) {
         cout << "密码小于8位注册失败" << endl;
+        fflush(stdin);
         return ;
     }
-    ofstream struct_file(file_name);
-    fstream InMyFile;
-    InMyFile.open(PURCHASER_FILE_NAME, ios::app);
-    InMyFile.seekg(0, ios::end); //将文件指针指向文件末端
-    streampos fp = InMyFile.tellg(); //fp为文件指针的偏移量
+    cout << "请再次输入密码: ";
+    cin >> password2;
+    if (password1 != password2) {
+        cout << "两次输入的密码不一致，注册失败" << endl;
+        fflush(stdin);
+        return ;
+    }
+    fstream InMyFile2;
+    InMyFile2.open(PURCHASER_FILE_NAME, ios::app);
+    InMyFile2.seekg(0, ios::end); //将文件指针指向文件末端
+    streampos fp = InMyFile2.tellg(); //fp为文件指针的偏移量
     if (int(fp) != 0) // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
-        InMyFile<<endl;
-    InMyFile<<user_name<<" "<<password;
-    InMyFile.close();
+        InMyFile2<<endl;
+    InMyFile2<<user_name<<" "<<password1;
+    InMyFile2.close();
+    cout << "注册成功" << endl;
 }
 //买家登录
 Purchaser Purchaser::Loggin() {
@@ -697,4 +719,25 @@ const int Purchaser::DateCompare(int yy1, int mm1, int dd1, int yy2, int mm2, in
         }
     }
     return 0;
+}
+//花店地址导航
+void Purchaser::NavigateShopAddress() const {
+    Map m;
+    m.InitMap();
+    cout << "请输入要搜索的商家店名: ";
+    string shop_name;
+    cin >> shop_name;
+    MapNode node = m.SearchMap(shop_name);
+    if (node.x == -1) {
+        cout << "您要搜索的商家不存在" << endl;
+        return ;
+    }
+    m.ShowMap();
+    cout << "请输入您所在位置: ";
+    char x, y;
+    cin >> x >> y;
+    path_node start = m.locate(x, y);
+    m.ChangeMap(node, start);
+    cout << "已为您规划最短路线: " << endl;
+    m.ShowMap();
 }

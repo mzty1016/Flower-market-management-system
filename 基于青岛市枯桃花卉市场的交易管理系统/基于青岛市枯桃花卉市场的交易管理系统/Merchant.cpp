@@ -32,29 +32,66 @@ bool Merchant::IsLogSuccess() {
 //商家入驻
 void Merchant::Logging() {
     string user_name;
-    string password;
+    string password1, password2;
     string shop_name;
     cout << "请输入用户名: ";
     cin >> user_name;
     //验证用户名是否存在
+    ifstream InMyFile1;
+    InMyFile1.open(MERCHANT_FILE_NAME);
+    string file_user_name, file_password, file_shop_name;
+    while (!InMyFile1.eof()) {
+        InMyFile1>>file_user_name>>file_password>>file_shop_name;
+        if (file_user_name == user_name) {
+            cout << "该用户名已存在， 注册失败" << endl;
+            InMyFile1.close();
+            fflush(stdin);
+            return ;
+        }
+    }
+    InMyFile1.close();
+    //输入两次密码
     cout << "请输入密码（不小于8位）: ";
-    cin >> password;
-    if (password.length() < 8) {
+    cin >> password1;
+    if (password1.length() < 8) {
         cout << "密码小于8位注册失败" << endl;
+        fflush(stdin);
+        return ;
+    }
+    cout << "请再次输入密码: ";
+    cin >> password2;
+    if (password1 != password2) {
+        cout << "两次输入的密码不一致，注册失败" << endl;
+        fflush(stdin);
         return ;
     }
     cout << "请输入花店名: ";
     cin >> shop_name;
     fflush(stdin);
     //验证花店名已存在
-    fstream InMyFile;
-    InMyFile.open(MERCHANT_FILE_NAME, ios::app);
-    InMyFile.seekg(0, ios::end); //将文件指针指向文件末端
-    streampos fp = InMyFile.tellg(); //fp为文件指针的偏移量
+    ifstream InMyFile2;
+    InMyFile2.open(MERCHANT_FILE_NAME);
+    while (!InMyFile2.eof()) {
+        InMyFile2>>file_user_name>>file_password>>file_shop_name;
+        if (file_shop_name == shop_name) {
+            cout << "该店名已存在， 注册失败" << endl;
+            return ;
+        }
+    }
+    InMyFile2.close();
+    fstream InMyFile3;
+    InMyFile3.open(MERCHANT_FILE_NAME, ios::app);
+    InMyFile3.seekg(0, ios::end); //将文件指针指向文件末端
+    streampos fp = InMyFile3.tellg(); //fp为文件指针的偏移量
     if (int(fp) != 0) // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
-        InMyFile<<endl;
-    InMyFile<<user_name<<" "<<password<<" "<<shop_name;
-    InMyFile.close();
+        InMyFile3<<endl;
+    InMyFile3<<user_name<<" "<<password1<<" "<<shop_name;
+    InMyFile3.close();
+    Map m;
+    m.InitMap();
+    m.AddAddress(shop_name);
+    m.SaveMap();
+    cout << "入驻成功" << endl;
 }
 //商家登录
 Merchant Merchant::Loggin() {

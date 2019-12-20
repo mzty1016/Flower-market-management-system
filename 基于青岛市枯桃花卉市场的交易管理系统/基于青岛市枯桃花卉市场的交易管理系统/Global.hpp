@@ -14,14 +14,26 @@
 
 using namespace std;
 
+//关于哈希表
 const int MAXSIZE = 500; //哈希表长度
+
+//关于管理员
 const string ADMIN_PASSERWORD = "12345"; //管理员密码
+
+//关于花卉市场地图
+const int MAP_LENGTH = 29; //花卉市场长度
+const int MAP_WIDTH = 22; //花卉市场宽度
+const int ADDRESS_MAX_NUM = 35; //花卉市场最大商家容量
+
+//关于文件
 const string FLOWER_FILE_NAME = "/Users/xumingfei/Desktop/data.txt"; //存放花卉信息的文件名
 const string MERCHANT_FILE_NAME = "/Users/xumingfei/Desktop/merchant.txt"; //存放商家账号密码和店名的文件名
 const string PURCHASER_FILE_NAME = "/Users/xumingfei/Desktop/purchaser.txt"; //存放买家账号密码的文件名
 const string LEFT_AD_FILE_NAME = "/Users/xumingfei/Desktop/leftad.txt"; //存放左栏广告信息的文件名
 const string RIGHT_AD_FILE_NAME = "/Users/xumingfei/Desktop/rightad.txt"; //存放右栏广告信息的文件名
 const string ANNOUNCEMENT_FILE_NAME = "/Users/xumingfei/Desktop/announcement.txt"; //存放公告信息的文件名
+const string MAP_FILE_NAME = "/Users/xumingfei/Desktop/map.txt"; //存放地图信息的文件名
+const string MERCHANT_ADDRESS_FILE_NAME = "/Users/xumingfei/Desktop/address.txt"; //存放地图买家信息的文件名
 const string FILE_ADDRESS = "/Users/xumingfei/Desktop/"; //文件所在地址
 const string FILE_TYPE = ".txt"; //文件类型
 

@@ -18,6 +18,7 @@
 #include "Flower.hpp"
 #include "Hash.hpp"
 #include "User.hpp"
+#include "Map.hpp"
 
 using namespace std;
 

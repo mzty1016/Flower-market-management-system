@@ -454,7 +454,7 @@ void PurchaserDoMenu::MenuRun(const Purchaser &purchaser) {
             MenuRun(purchaser);
             break;
         case '6': //花店地址导航
-            
+            purchaser.NavigateShopAddress();
             MenuRun(purchaser);
             break;
         case '7': //返回上级菜单

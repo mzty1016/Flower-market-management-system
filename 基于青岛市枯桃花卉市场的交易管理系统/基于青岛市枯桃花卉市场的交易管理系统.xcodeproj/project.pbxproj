@@ -12,6 +12,7 @@
 		31577B0423A75001003C295C /* Merchant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31577B0223A75001003C295C /* Merchant.cpp */; };
 		31577B0723A750CF003C295C /* Purchaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31577B0523A750CF003C295C /* Purchaser.cpp */; };
 		31577B0A23A750E1003C295C /* Admin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31577B0823A750E1003C295C /* Admin.cpp */; };
+		31C7DED423AC7AEE00262A44 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31C7DED223AC7AEE00262A44 /* Map.cpp */; };
 		31E75768239A998300B76F82 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31E75767239A998300B76F82 /* main.cpp */; };
 		31E75770239A99A300B76F82 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31E7576E239A99A300B76F82 /* Global.cpp */; };
 		31E75773239B8BB000B76F82 /* Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31E75771239B8BB000B76F82 /* Hash.cpp */; };
@@ -42,6 +43,8 @@
 		31577B0623A750CF003C295C /* Purchaser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Purchaser.hpp; sourceTree = "<group>"; };
 		31577B0823A750E1003C295C /* Admin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Admin.cpp; sourceTree = "<group>"; };
 		31577B0923A750E1003C295C /* Admin.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Admin.hpp; sourceTree = "<group>"; };
+		31C7DED223AC7AEE00262A44 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		31C7DED323AC7AEE00262A44 /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
 		31E75764239A998300B76F82 /* 基于青岛市枯桃花卉市场的交易管理系统 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "基于青岛市枯桃花卉市场的交易管理系统"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E75767239A998300B76F82 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		31E7576E239A99A300B76F82 /* Global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				31E75767239A998300B76F82 /* main.cpp */,
+				31C7DED223AC7AEE00262A44 /* Map.cpp */,
+				31C7DED323AC7AEE00262A44 /* Map.hpp */,
 				31E7576E239A99A300B76F82 /* Global.cpp */,
 				31E7576F239A99A300B76F82 /* Global.hpp */,
 				31E75771239B8BB000B76F82 /* Hash.cpp */,
@@ -168,6 +173,7 @@
 				31E75770239A99A300B76F82 /* Global.cpp in Sources */,
 				31E75776239BFF3400B76F82 /* Flower.cpp in Sources */,
 				31577B0723A750CF003C295C /* Purchaser.cpp in Sources */,
+				31C7DED423AC7AEE00262A44 /* Map.cpp in Sources */,
 				31577B0123A3C22B003C295C /* Menu.cpp in Sources */,
 				31577AFE23A3BDAE003C295C /* User.cpp in Sources */,
 				31577B0A23A750E1003C295C /* Admin.cpp in Sources */,
