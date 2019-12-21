@@ -29,6 +29,7 @@ class Admin : public Merchant, public Purchaser {
     void ClearAn(); //清空公告
     void SetAd(); //设置广告
     void ClearAd(); //广告一键清空并显示: 广告位招租
+    void ClearAd2(char ch); //广告置空，设置新的广告前先将广告置空;
     void MerchantRetrievePassword(); //商家找回密码
     void PurchaserRetrievePassword(); //买家找回密码
     void ClearAnnouncement(); //清空公告

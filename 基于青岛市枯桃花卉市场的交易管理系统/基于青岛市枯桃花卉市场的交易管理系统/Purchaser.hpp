@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstdio>
 
 #include "Global.hpp"
 #include "Flower.hpp"
@@ -35,10 +36,12 @@ public:
     void NavigateShopAddress() const; //花店地址导航
     void ModifyLogStatus(bool judge);
     bool IsLogSuccess();
-//    LNode* MergeList1(LNode *L1, LNode *L2) const; //价格归并排序
-//    LNode* MergeSort1(LNode *head) const;          //价格归并排序
-//    LNode* MergeList2(LNode *L1, LNode *L2) const; //日期归并排序
-//    LNode* MergeSort2(LNode *head) const;          //日期归并排序
+    LNode* MergeList1(LNode *L1, LNode *L2) const; //价格归并排序
+    LNode* MergeSort1(LNode *head) const;          //价格归并排序
+    LNode* MergeList2(LNode *L1, LNode *L2) const; //数量归并排序
+    LNode* MergeSort2(LNode *head) const;          //数量归并排序
+    LNode* MergeList3(LNode *L1, LNode *L2) const; //日期归并排序
+    LNode* MergeSort3(LNode *head) const;          //日期归并排序
 private:
     LNode *LinkList; //存放预约的花卉的链表
     bool log_success;

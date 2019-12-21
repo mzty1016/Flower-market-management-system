@@ -45,6 +45,18 @@ void MainMenu::ShowMenuBottom() {
     cout << "                                                    :";
 //    Sleep(5);
 }
+void MainMenu::ShowVersion() {
+    cout<<endl; cout<<"                ";
+    cout<<STAR<<" "<<SOFTWARE<<" "<<STAR<<NEW_LINE<<NEW_LINE;
+    cout<<endl<<"                                             版本信息： V1.0"<<endl<<endl;
+    cout<<endl<<"                              如果您发现该系统在某些地方,存在bug或者可以优化"<<endl<<
+           "                                      请联系我，我的QQ是: 736191200"<<endl<<endl;
+    cout<<endl<<"                               如果您想继续完善该系统或者想进行有关内容的学习"<<endl<<
+    "                                 可以访问该系统的github网站进行fork或者查看"<<endl<<endl;
+    cout<<"                   github: https://github.com/Dousir9/Flower-market-management-system"<<endl;
+    cout<<endl<<endl<<endl<<endl<<endl<<endl<<"                             Copyright c 2019 Dousir9. All rights reserved."<<endl<<endl;
+    cout<<endl<<"\n                                            ";
+}
 void MainMenu::ShowError() {
     fflush(stdin); //先清空缓存区
     cout << "无效的输入，请重新输入" << endl;
@@ -206,7 +218,10 @@ void MainMenu::MenuRun() {
             admin_log_menu.MenuRun();
             MenuRun();
             break;
-        case '4': //退出系统
+        case '4': //版本信息
+            ShowVersion();
+            MenuRun();
+        case '5': //退出系统
             exit(0);
         default: //应对异常输入
             ShowError();
@@ -486,14 +501,30 @@ void AdminLogMenu::MenuRun() {
 }
 //输出管理员操作菜单
 void AdminDoMenu::ShowMenuInfo() {
-    cout << "1.发布公告" <<endl;
-    cout << "2.设置广告" <<endl;
-    cout << "3.广告一键清空" <<endl;
-    cout << "4.买家找回密码" <<endl;
-    cout << "5.商家找回密码" <<endl;
-    cout << "6.系统测试" <<endl;
-    cout << "7.返回主菜单" <<endl;
-    cout << "8.退出系统" <<endl;
+    cout<<TT;cout<<KK; cout<<"    ╔════════════════════════════════════════════════╗     ";cout<<KK; cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad1); cout<<"    ║                                                ║     "; ShowAd(rightad1); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad2); cout<<"    ║                 ①  公告发布                    ║     ";ShowAd(rightad2); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad3); cout<<"    ║                 ②  广告设置                    ║     "; ShowAd(rightad3); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad4); cout<<"    ║                 ③  广告一键清空                ║     ";ShowAd(rightad4); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad5); cout<<"    ║                 ④  买家找回密码                ║     "; ShowAd(rightad5); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad6); cout<<"    ║                 ⑤  商家找回密码                ║     ";ShowAd(rightad6); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad7); cout<<"    ║                 ⑥  返回主菜单                  ║     "; ShowAd(rightad7); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad8); cout<<"    ║                 ⑦  退出系统                    ║     ";ShowAd(rightad8); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad9); cout<<"    ║                                                ║     "; ShowAd(rightad9); cout<<endl;
+//    Sleep(5);
+    cout<<TT;ShowAd(leftad10);cout<<"    ║                 请按提示进行输入:              ║     ";ShowAd(rightad10); cout<<endl;
+//    Sleep(5);
+    cout<<TT;cout<<KK; cout<<("    ╚════════════════════════════════════════════════╝     ");cout<<KK; cout<<endl;
+//    Sleep(5);
 }
 //管理员操作菜单运行
 void AdminDoMenu::MenuRun() {
@@ -504,7 +535,6 @@ void AdminDoMenu::MenuRun() {
     char ch = Input();
     switch (ch) {
         case '1': //发布公告
-            admin.ClearAn();
             admin.Announce();
             LoadAnnouncement();
             MenuRun();
@@ -527,13 +557,9 @@ void AdminDoMenu::MenuRun() {
             admin.MerchantRetrievePassword();
             MenuRun();
             break;
-        case '6': //系统测试
-            
-            MenuRun();
-            break;
-        case '7': //返回主菜单
+        case '6': //返回主菜单
             return ;
-        case '8': //退出系统
+        case '7': //退出系统
             exit(0);
         default: //应对异常输入
             ShowError();

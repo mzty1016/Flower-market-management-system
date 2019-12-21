@@ -63,13 +63,16 @@ void Map::SaveMap() {
     InMyFile2.close();
 }
 void Map::ShowMap() {
+    const string kg = "                       ";
     char cc = 'a';
+    cout << kg;
     for (int i = 0; i < 4; i++)
         cout << " ";
     for (int i = 0; i < MAP_LENGTH - 3; i++)
         cout << char(cc + i) << " ";
     cout << endl;
     for (int i = 0, k = 0; i < MAP_WIDTH; i++) {
+        cout << kg;
         if (i > 0 && i < MAP_WIDTH-1){
             cout << char(cc + k) << " ";
             k++;

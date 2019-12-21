@@ -7,10 +7,12 @@
 //
 
 #include "Purchaser.hpp"
-#include <cstdio>
 
 #include "Hash.hpp"
 extern HashTable hashtable;
+extern char leftad1[30], leftad2[30], leftad3[30], leftad4[30], leftad5[30], leftad6[30], leftad7[30], leftad8[30], leftad9[30], leftad10[30];
+extern char rightad1[30], rightad2[30], rightad3[30], rightad4[30], rightad5[30], rightad6[30], rightad7[30], rightad8[30], rightad9[30], rightad10[30];
+extern char announcement1[100], announcement2[100], announcement3[100], announcement4[100], announcement5[100];
 
 //默认构造函数
 Purchaser::Purchaser() {
@@ -32,9 +34,12 @@ bool Purchaser::IsLogSuccess() {
 }
 //买家注册
 void Purchaser::Logging() {
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
     string user_name;
     string password1, password2;
-    cout << "请输入用户名: ";
+    cout<<endl<<"                                           请输入注册用户名: ";
     cin >> user_name;
     //验证用户名是否存在
     //验证用户名是否存在
@@ -44,27 +49,33 @@ void Purchaser::Logging() {
     while (!InMyFile1.eof()) {
         InMyFile1>>file_user_name>>file_password;
         if (file_user_name == user_name) {
-            cout << "该用户名已存在， 注册失败" << endl;
             InMyFile1.close();
             fflush(stdin);
+            cout<<"                               该用户名已被注册，注册失败，正在返回买家界面....\n";
+            //            Sleep(2000);
+            //            system("CLS");
             return ;
         }
     }
     InMyFile1.close();
     string file_name = FILE_ADDRESS + user_name + FILE_TYPE;
-    cout << "请输入密码（不小于8位）: ";
+    cout<<endl<<"                                         请输入密码(不小于8位): ";
     cin >> password1;
     fflush(stdin);
     if (password1.length() < 8) {
-        cout << "密码小于8位注册失败" << endl;
         fflush(stdin);
+        cout<<endl<<"                              密码长度应不小于8位，入驻失败，正在返回买家界面....";
+        //        Sleep(2000);
+        //        system("CLS");
         return ;
     }
-    cout << "请再次输入密码: ";
+    cout<<endl<<"                                           请再次输入密码: ";
     cin >> password2;
     if (password1 != password2) {
-        cout << "两次输入的密码不一致，注册失败" << endl;
         fflush(stdin);
+        cout<<"                            两次输入的密码不一致，入驻失败，正在返回买家界面....";
+        //        Sleep(2000);
+        //        system("CLS");
         return ;
     }
     fstream InMyFile2;
@@ -75,15 +86,18 @@ void Purchaser::Logging() {
         InMyFile2<<endl;
     InMyFile2<<user_name<<" "<<password1;
     InMyFile2.close();
-    cout << "注册成功" << endl;
+    cout<<endl<<"                                           注册成功 ";
 }
 //买家登录
 Purchaser Purchaser::Loggin() {
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
     string user_name;
     string password;
-    cout << "请输入用户名: ";
+    cout<<endl<<"                                       请 输 入 用 户 名:";
     cin >> user_name;
-    cout << "请输入密码: ";
+    cout<<endl<<"                                        请 输 入 密 码:";
     cin >> password;
     fflush(stdin);
     string file_user_name; //文件中的用户名
@@ -95,170 +109,341 @@ Purchaser Purchaser::Loggin() {
         if (file_user_name == user_name) {
             if (file_password == password) {
                 OutMyFile.close();
-                cout << "登录成功" <<endl;
+                cout<<endl<<"                                           密码正确,正在登录...."<<endl;
+                //                Sleep(2000);
+                //                system("CLS");
                 Purchaser p(user_name, password);
                 p.ModifyLogStatus(true);
                 return p;
             } else {
                 OutMyFile.close();
-                cout << "密码错误" <<endl;
+                cout<<endl<<"                                     密码错误，正在返回买家界面...."<<endl;
+                //                Sleep(2000);
+                //                system("CLS");
                 Purchaser p;
                 return p;
             }
         }
     }
+    cout<<endl<<"                                     该用户名不存在，正在返回买家界面...."<<endl;
+    //                Sleep(2000);
+    //                system("CLS");
     OutMyFile.close();
     Purchaser p;
     return p;
 }
 //查看所有上架花卉
 void Purchaser::CheckALLFlower() const {
-    cout << " 花卉名称 " << " 花店名 " << " 颜色 " << " 单价 " << "数量" << " 上架日期 " << endl;
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
+    printf("    花卉名称          花店名          花卉颜色             单价              数量             上架日期  \n");
     for (int i = 0; i < MAXSIZE; ++i) {
         LNode *p = hashtable.first[i];
         while (p != NULL) {
-            cout<<p->flower->FlowerNameInfo()<<"  "<<p->flower->ShopNameInfo()<<"  "<<p->flower->PetalColorInfo()<<"  "<<p->flower->FlowerPriceInfo()<<"  "<<p->flower->FlowerNumberInfo()<<" "<<p->flower->YearInfo()<<"/"<<p->flower->MonthInfo()<<"/"<<p->flower->DayInfo()<<endl;
+            printf("      %-8s         %-8s           %-5s              %5.1f               %-3d            ", p->flower->FlowerNameInfo().c_str(), p->flower->ShopNameInfo().c_str(), p->flower->PetalColorInfo().c_str(),p->flower->FlowerPriceInfo(),  p->flower->FlowerNumberInfo());
+            //用到运算符重载 <<
+            cout<<p->flower->FlowerDateInfo();
             p = p->next;
         }
     }
 }
 //查找花卉
 void Purchaser::SearchFlower() const {
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
     LNode* linklist;
     linklist = NULL;
     string flower_name;
-    cout << "请输入你要查找的花卉名称 :";
+    cout <<endl<< "                                      请输入你要查找的花卉名称 :";
     cin >> flower_name;
     fflush(stdin);
     int index = hashtable.SearchFlower(flower_name, 1);
     if (index == -1) {
-        cout << "你要查找的花卉不存在" << endl;
+        cout <<endl<< "                                        你要查找的花卉不存在" << endl;
         return ;
     } else {
         LNode *p = hashtable.first[index];
-        linklist = p;
-        cout << "你要查找的花卉信息为: " << endl;
-        cout << " 花卉名称 " << " 花店名 " << " 颜色 " << " 单价 " << "数量" << " 上架日期 " << endl;
+        cout <<endl<< "                                        你要查找的花卉信息为: " << endl;
+        printf("    花卉名称          花店名          花卉颜色             单价              数量             上架日期  \n");
         while (p != NULL) {
-            cout<<p->flower->FlowerNameInfo()<<"  "<<p->flower->ShopNameInfo()<<"  "<<p->flower->PetalColorInfo()<<"  "<<p->flower->FlowerPriceInfo()<<"  "<<p->flower->FlowerNumberInfo()<<" "<<p->flower->YearInfo()<<"/"<<p->flower->MonthInfo()<<"/"<<p->flower->DayInfo()<<endl;
+            printf("      %-8s         %-8s           %-5s              %5.1f               %-3d            ", p->flower->FlowerNameInfo().c_str(), p->flower->ShopNameInfo().c_str(), p->flower->PetalColorInfo().c_str(),p->flower->FlowerPriceInfo(),  p->flower->FlowerNumberInfo());
+            //用到运算符重载 <<
+            cout<<p->flower->FlowerDateInfo();
             p = p->next;
         }
-//        bool flag = 1;
-//        LNode *q;
-//        while (flag) {
-//            cout << "1.按单价排序" << endl;
-//            cout << "2.按上架日期排序" << endl;
-//            cout << "3.返回" << endl;
-//            char ch;
-//            cin >> ch;
-//            fflush(stdin);
-//            switch (ch) {
-//                case '1':
-//                    linklist = MergeSort1(linklist);
-//                    q = LinkList;
-//                    cout << "按单价排序: " << endl;
-//                    while (q != NULL) {
-//                        cout<<q->flower->FlowerNameInfo()<<"  "<<q->flower->ShopNameInfo()<<"  "<<q->flower->PetalColorInfo()<<"  "<<q->flower->FlowerPriceInfo()<<"  "<<q->flower->YearInfo()<<"/"<<q->flower->MonthInfo()<<"/"<<q->flower->DayInfo()<<endl;
-//                        q = q->next;
-//                    }
-//                    break;
-//                case '2':
-//                    break;
-//                case '3':
-//                    flag = 0;
-//                    break;
-//                default:
-//                    cout << "无效的输入,请重新输入" << endl;
-//            }
-//        }
+        bool flag = 1;
+        LNode *q;
+        while (flag) {
+            cout <<endl<< "                                           1.按单价排序" << endl;
+            cout <<endl<< "                                           2.按数量排序" << endl;
+            cout <<endl<< "                                           3.按上架日期排序" << endl;
+            cout <<endl<< "                                           4.返回" << endl;
+            char ch;
+            cin >> ch;
+            fflush(stdin);
+            switch (ch) {
+                case '1':
+                    q = MergeSort1(hashtable.first[index]);
+                    hashtable.first[index] = q;
+                    cout <<endl<< "                                           按单价排序: " << endl;
+                    printf("    花卉名称          花店名          花卉颜色             单价              数量             上架日期  \n");
+                    while (q != NULL) {
+                        printf("      %-8s         %-8s           %-5s              %5.1f               %-3d            %-2d/%-2d/%-2d\n", q->flower->FlowerNameInfo().c_str(), q->flower->ShopNameInfo().c_str(), q->flower->PetalColorInfo().c_str(),q->flower->FlowerPriceInfo(),  q->flower->FlowerNumberInfo(),
+                               q->flower->YearInfo(), q->flower->MonthInfo(), q->flower->DayInfo());
+                        q = q->next;
+                    }
+                    break;
+                case '2':
+                    q = MergeSort2(hashtable.first[index]);
+                    hashtable.first[index] = q;
+                    cout <<endl<< "                                           按数量排序: " << endl;
+                    printf("    花卉名称          花店名          花卉颜色             单价              数量             上架日期  \n");
+                    while (q != NULL) {
+                        printf("      %-8s         %-8s           %-5s              %5.1f               %-3d            %-2d/%-2d/%-2d\n", q->flower->FlowerNameInfo().c_str(), q->flower->ShopNameInfo().c_str(), q->flower->PetalColorInfo().c_str(),q->flower->FlowerPriceInfo(),  q->flower->FlowerNumberInfo(),
+                               q->flower->YearInfo(), q->flower->MonthInfo(), q->flower->DayInfo());
+                        q = q->next;
+                    }
+                    break;
+                case '3':
+                    q = MergeSort3(hashtable.first[index]);
+                    hashtable.first[index] = q;
+                    cout <<endl<< "                                           按上架日期排序: " << endl;
+                    printf("    花卉名称          花店名          花卉颜色             单价              数量             上架日期  \n");
+                    while (q != NULL) {
+                        printf("      %-8s         %-8s           %-5s              %5.1f               %-3d            %-2d/%-2d/%-2d\n", q->flower->FlowerNameInfo().c_str(), q->flower->ShopNameInfo().c_str(), q->flower->PetalColorInfo().c_str(),q->flower->FlowerPriceInfo(),  q->flower->FlowerNumberInfo(),
+                               q->flower->YearInfo(), q->flower->MonthInfo(), q->flower->DayInfo());
+                        q = q->next;
+                    }
+                    break;
+                case '4':
+                    flag = 0;
+                    break;
+                default:
+                    cout <<endl<< "                                       无效的输入,请重新输入" << endl;
+            }
+        }
         return ;
     }
 }
+//价格归并排序
+LNode* Purchaser::MergeList1(LNode *L1, LNode *L2) const {
+    LNode *p, *q, *L, *r;
+    p = L1;
+    q = L2;
+    if(p&&q&&p->flower->FlowerPriceInfo()<=q->flower->FlowerPriceInfo()){
+        L = p;
+        p = p->next;
+        r = L;
+    }
+    else if(p&&q){
+        L = q;
+        q = q->next;
+        r = L;
+    }
+    while(p&&q){
+        if(p->flower->FlowerPriceInfo()<=q->flower->FlowerPriceInfo()){
+            r->next = p;
+            r = p;
+            p = p->next;
+        }
+        else{
+            r->next = q;
+            r = q;
+            q = q->next;
+        }
+    }
+    p = p?p:q;
+    r->next = p;
+    return L;
+}
+LNode* Purchaser::MergeSort1(LNode *head) const {
+    if(head==NULL||head->next==NULL)
+        return head;
+    LNode *slow, *fast;
+    slow = head;
+    fast = head->next;
+    while(fast!=NULL){
+        fast = fast->next;
+        if(fast!=NULL){
+            fast = fast->next;
+            slow = slow->next;
+        }
+    }
+    LNode *lefthead = head, *righthead = slow->next;
+    slow->next = NULL;
+    lefthead = MergeSort1(lefthead);
+    righthead = MergeSort1(righthead);
+    return MergeList1(lefthead, righthead);
+}
+//数量归并排序
+LNode* Purchaser::MergeList2(LNode *L1, LNode *L2) const {
+    LNode *p, *q, *L, *r;
+    p = L1;
+    q = L2;
+    if(p&&q&&p->flower->FlowerNumberInfo()<=q->flower->FlowerNumberInfo()){
+        L = p;
+        p = p->next;
+        r = L;
+    }
+    else if(p&&q){
+        L = q;
+        q = q->next;
+        r = L;
+    }
+    while(p&&q){
+        if(p->flower->FlowerNumberInfo()<=q->flower->FlowerNumberInfo()){
+            r->next = p;
+            r = p;
+            p = p->next;
+        }
+        else{
+            r->next = q;
+            r = q;
+            q = q->next;
+        }
+    }
+    p = p?p:q;
+    r->next = p;
+    return L;
+}
 
-//LNode* Purchaser::MergeList1(LNode *L1, LNode *L2) const {
-//    LNode *p, *q, *L, *r;
-//    L = L1;
-//    p = L1;
-//    q = L2;
-//    if(p&&q&&p->flower->FlowerPriceInfo()<=q->flower->FlowerPriceInfo()){
-//        L->flower->ModifyFlowerPrice(p->flower->FlowerPriceInfo());
-//        L->next = p->next;
-//        p = p->next;
-//        r = L;
-//    }
-//    else if(p&&q){
-//        L->flower->ModifyFlowerPrice(q->flower->FlowerPriceInfo());
-//        L->next = q->next;
-//        q = q->next;
-//        r = L;
-//    }
-//    while(p&&q){
-//        if(p->flower->FlowerPriceInfo()<=q->flower->FlowerPriceInfo()){
-//            r->next = p;
-//            r = p;
-//            p = p->next;
-//        }
-//        else{
-//            r->next = q;
-//            r = q;
-//            q = q->next;
-//        }
-//    }
-//    p = p?p:q;
-//    r->next = p;
-//    return L;
-//}
-//
-//LNode* Purchaser::MergeSort1(LNode *head) const {
-//    if(head==NULL||head->next==NULL)
-//        return head;
-//    LNode *slow, *fast;
-//    slow = head;
-//    fast = head->next;
-//    while(fast!=NULL){
-//        fast = fast->next;
-//        if(fast!=NULL){
-//            fast = fast->next;
-//            slow = slow->next;
-//        }
-//    }
-//    LNode *lefthead = head, *righthead = slow->next;
-//    slow->next = NULL;
-//    lefthead = MergeSort1(lefthead);
-//    righthead = MergeSort1(righthead);
-//    return MergeList1(lefthead, righthead);
-//}
+LNode* Purchaser::MergeSort2(LNode *head) const {
+    if(head==NULL||head->next==NULL)
+        return head;
+    LNode *slow, *fast;
+    slow = head;
+    fast = head->next;
+    while(fast!=NULL){
+        fast = fast->next;
+        if(fast!=NULL){
+            fast = fast->next;
+            slow = slow->next;
+        }
+    }
+    LNode *lefthead = head, *righthead = slow->next;
+    slow->next = NULL;
+    lefthead = MergeSort2(lefthead);
+    righthead = MergeSort2(righthead);
+    return MergeList2(lefthead, righthead);
+}
+//上架日期归并排序
+LNode* Purchaser::MergeList3(LNode *L1, LNode *L2) const {
+    LNode *p, *q, *L, *r;
+    p = L1;
+    q = L2;
+    if(p&&q&&p->flower->YearInfo()==q->flower->YearInfo()){
+        if(p->flower->MonthInfo()==q->flower->MonthInfo()){
+            if(p->flower->DayInfo()<=q->flower->DayInfo()){
+                L = p;
+                p = p->next;
+                r = L;
+            } else {
+                L = q;
+                q = q->next;
+                r = L;
+            }
+        } else if (p->flower->MonthInfo()<=q->flower->MonthInfo()) {
+            L = p;
+            p = p->next;
+            r = L;
+        } else {
+            L = q;
+            q = q->next;
+            r = L;
+        }
+    } else if (p&&q&&p->flower->YearInfo()<q->flower->YearInfo()) {
+        L = p;
+        p = p->next;
+        r = L;
+    } else {
+        L = q;
+        q = q->next;
+        r = L;
+    }
+    while(p&&q){
+        if(p->flower->YearInfo()<=q->flower->YearInfo()){
+            if(p->flower->MonthInfo()<=q->flower->MonthInfo()) {
+                if(p->flower->DayInfo()<=q->flower->DayInfo()) {
+                    r->next = p;
+                    r = p;
+                    p = p->next;
+                } else {
+                    r->next = q;
+                    r = q;
+                    q = q->next;
+                }
+            } else {
+                r->next = q;
+                r = q;
+                q = q->next;
+            }
+        } else {
+            r->next = q;
+            r = q;
+            q = q->next;
+        }
+    }
+    p = p?p:q;
+    r->next = p;
+    return L;
+}
+
+LNode* Purchaser::MergeSort3(LNode *head) const {
+    if(head==NULL||head->next==NULL)
+        return head;
+    LNode *slow, *fast;
+    slow = head;
+    fast = head->next;
+    while(fast!=NULL){
+        fast = fast->next;
+        if(fast!=NULL){
+            fast = fast->next;
+            slow = slow->next;
+        }
+    }
+    LNode *lefthead = head, *righthead = slow->next;
+    slow->next = NULL;
+    lefthead = MergeSort3(lefthead);
+    righthead = MergeSort3(righthead);
+    return MergeList3(lefthead, righthead);
+}
 //预约花卉
 void Purchaser::ReserveFlower() const {
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
     string flower_name;
-    cout << "请输入您要预约的花卉名称 :";
+    cout <<endl<< "                                      请输入您要预约的花卉名称 :";
     cin >> flower_name;
     fflush(stdin);
     int index = hashtable.SearchFlower(flower_name, 1);
     if (index == -1) {
-        cout << "您要预约的花卉不存在" << endl;
+        cout <<endl<< "                                        您要预约的花卉不存在" << endl;
         return ;
     } else {
         LNode *p = hashtable.first[index];
-        cout << "您可以预约的花卉如下: " << endl;
-        cout << " 花卉名称 " << " 花店名 " << " 颜色 " << " 单价 " << "数量" << " 上架日期 " << endl;
+        cout <<endl<< "                                        您可以预约的花卉如下: " << endl;
+        printf("    花卉名称          花店名          花卉颜色             单价              数量             上架日期  \n");
         while (p != NULL) {
-            cout<<p->flower->FlowerNameInfo()<<"  "<<p->flower->ShopNameInfo()<<"  "<<p->flower->PetalColorInfo()<<"  "<<p->flower->FlowerPriceInfo()<<"  "<<p->flower->FlowerNumberInfo()<<" "<<p->flower->YearInfo()<<"/"<<p->flower->MonthInfo()<<"/"<<p->flower->DayInfo()<<endl;
+            printf("      %-8s         %-8s           %-5s              %5.1f               %-3d            %-2d/%-2d/%-2d\n", p->flower->FlowerNameInfo().c_str(), p->flower->ShopNameInfo().c_str(), p->flower->PetalColorInfo().c_str(),p->flower->FlowerPriceInfo(),  p->flower->FlowerNumberInfo(),
+                   p->flower->YearInfo(), p->flower->MonthInfo(), p->flower->DayInfo());
             p = p->next;
         }
         string shop_name;
-        cout << "请输入您要预约花卉的花店名: ";
+        cout <<endl<< "                                       请输入您要预约花卉的花店名: ";
         cin >> shop_name;
         fflush(stdin);
         p = hashtable.first[index];
         while (p != NULL) {
             if (p->flower->ShopNameInfo() == shop_name) {
-                cout << "请输入您要预约的数量: ";
+                cout <<endl<< "                                         请输入您要预约的数量: ";
                 int num;
                 cin >> num;
                 fflush(stdin);
                 if (p->flower->FlowerNumberInfo() < num) {
-                    cout << "预约数量大于库存，预约失败" << endl;
+                    cout <<endl<< "                                        预约数量大于库存，预约失败" << endl;
                     return ;
                 } else {
                     p->flower->ModifyFlowerNumber(p->flower->FlowerNumberInfo() - num);
@@ -272,19 +457,23 @@ void Purchaser::ReserveFlower() const {
                     InMyFile<<p->flower->FlowerNameInfo()<<" "<<p->flower->ShopNameInfo()<<" "<<p->flower->PetalColorInfo()<<" "<<p->flower->FlowerPriceInfo()<<" "<<num<<" "<<p->flower->YearInfo()<<" "<<p->flower->MonthInfo()<<" "<<
                     p->flower->DayInfo();
                     InMyFile.close();
-                    cout << "预约成功" << endl;
+                    cout <<endl<< "                                                预约成功" << endl;
                     return ;
                 }
             }
             p = p->next;
         }
-        cout << "该商家不存在" << endl;
+        cout <<endl<< "                                              该商家不存在" << endl;
         return ;
     }
 }
 
 //查看预约
 void Purchaser::CheckReservation() const{
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
+    cout <<endl<< "                                            您预约的花卉如下: " <<endl<<endl;
     string flower_name;
     string shop_name;
     string flower_color;
@@ -297,21 +486,25 @@ void Purchaser::CheckReservation() const{
     OutMyFile.seekg(0, ios::end); //将文件指针指向文件末端
     streampos fp = OutMyFile.tellg(); //fp为文件指针的偏移量
     if (int(fp) == 0) { // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
-        cout << "您没有预约花卉" << endl;
+        cout <<endl<< "                                           您没有预约花卉" << endl;
         return ;
     }
     OutMyFile.close();
     OutMyFile.open(file_name);
-    cout << " 花卉名称 " << " 花店名 " << " 颜色 " << " 单价 " << "数量" << " 上架日期 " << endl;
+    printf("    花卉名称          花店名          花卉颜色             单价              数量             上架日期  \n");
     while (!OutMyFile.eof()) {
 
         OutMyFile>>flower_name>>shop_name>>flower_color>>flower_price>>flower_number>>year>>month>>day;
-        cout<<flower_name<<" "<<shop_name<<" "<<flower_color<<" "<<flower_price<<" "<<flower_number<<" "<<year<<"/"<<month<<"/"<<day<<endl;
+        printf("      %-8s         %-8s           %-5s              %5.1f               %-3d            %-2d/%-2d/%-2d\n", flower_name.c_str(), shop_name.c_str(), flower_color.c_str(),flower_price,  flower_number,
+               year, month, day);
     }
     OutMyFile.close();
 }
 //花卉推荐
 void Purchaser::RecommendFlower() const {
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
     cout<<endl;
     cout<<endl;cout<<TT;cout<<TT;
     printf("        "); cout<<STAR; printf(" ");
@@ -377,31 +570,14 @@ void Purchaser::RecommendFlower() const {
             printf("\n");
             cout<<TT;cout<<TT;
             printf("        "); cout<<STAR; printf(" "); cout<<SOFTWARE;printf(" ");cout<<STAR; cout<<NEW_LINE; cout<<NEW_LINE;
-//            Sleep(5);
-//            cout<<TT; cout<<KK;    printf("    ╔════════════════════════════════════════════════╗     "); cout<<KK;     printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left1); printf("    ║                ①  爱情鲜花                    ║     "); ShowAd(right1); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left2); printf("    ║                ②  生日鲜花                    ║     ");ShowAd(right2); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left3); printf("    ║                ③  友情鲜花                    ║     "); ShowAd(right3); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left4); printf("    ║                ④  问候长辈                    ║     ");ShowAd(right4); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left5); printf("    ║                ⑤  探病慰问                    ║     "); ShowAd(right5); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left6); printf("    ║                ⑥  婚庆鲜花                    ║     ");ShowAd(right6); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left7); printf("    ║                ⑦  商务鲜花                    ║     "); ShowAd(right7); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left8); printf("    ║                                                ║     ");ShowAd(right8); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left9); printf("    ║                                                ║     "); ShowAd(right9); printf("\n");
-////            Sleep(5);
-//            cout<<TT;ShowAd(left10);printf("    ║               请按提示进行输入:                ║     ");ShowAd(right10);printf("\n");
-////            Sleep(5);
-//            cout<<TT; cout<<KK;    printf("    ╚════════════════════════════════════════════════╝     "); cout<<KK;  printf("\n");
-//            Sleep(5);
+            cout<<endl<<"                                                请选择事件: "<<endl;
+            cout<<endl<<"                                                1.爱情鲜花 "<<endl;
+            cout<<endl<<"                                                2.生日鲜花 "<<endl;
+            cout<<endl<<"                                                3.友情鲜花 "<<endl;
+            cout<<endl<<"                                                4.问候长辈 "<<endl;
+            cout<<endl<<"                                                5.探病慰问 "<<endl;
+            cout<<endl<<"                                                6.婚庆鲜花 "<<endl;
+            cout<<endl<<"                                                7.商务鲜花 "<<endl;
             cin >> ch2;
             fflush(stdin);
             if(ch2=='1'){
@@ -722,22 +898,27 @@ const int Purchaser::DateCompare(int yy1, int mm1, int dd1, int yy2, int mm2, in
 }
 //花店地址导航
 void Purchaser::NavigateShopAddress() const {
+    cout<<endl<<TT<<TT;
+    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
+    //    Sleep(5);
     Map m;
     m.InitMap();
-    cout << "请输入要搜索的商家店名: ";
+    cout <<endl<< "                                       请输入要搜索的商家店名: ";
     string shop_name;
     cin >> shop_name;
     MapNode node = m.SearchMap(shop_name);
     if (node.x == -1) {
-        cout << "您要搜索的商家不存在" << endl;
+        cout <<endl<< "                                        您要搜索的商家不存在" << endl;
         return ;
     }
+    cout <<endl<< "                                               地图信息如下: "<<endl<<endl;
     m.ShowMap();
-    cout << "请输入您所在位置: ";
+    cout <<endl<< "                                            请输入您所在位置: ";
     char x, y;
     cin >> x >> y;
     path_node start = m.locate(x, y);
     m.ChangeMap(node, start);
-    cout << "已为您规划最短路线: " << endl;
+    cout <<endl<< "                                            已为您规划最短路线: " << endl;
     m.ShowMap();
+    cout << endl;
 }

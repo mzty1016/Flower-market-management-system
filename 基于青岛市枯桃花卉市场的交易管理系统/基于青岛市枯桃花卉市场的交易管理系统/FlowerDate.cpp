@@ -43,4 +43,8 @@ const int& FlowerDate::MonthInfo() {
 const int& FlowerDate::DayInfo() {
     return day;
 }
-
+//重载<<运算符
+ostream& operator << (ostream &out, FlowerDate flower_date) {
+    out<<left<<setw(2)<<flower_date.YearInfo()<<"/"<<left<<setw(2)<<flower_date.MonthInfo()<<"/"<<left<<setw(2)<<flower_date.DayInfo()<<endl;
+    return out;
+}

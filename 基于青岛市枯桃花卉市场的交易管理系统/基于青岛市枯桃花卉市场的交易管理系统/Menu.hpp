@@ -27,6 +27,7 @@ class MainMenu {
     void ShowAd(char ad[]); //输出广告内容
     void ShowAnnouncement(char an[]); //输出公告
     void ShowError(); //输出异常信息
+    void ShowVersion(); //输出版本信息
     void MenuRun(); //运行菜单
     char Input(); //从键盘接收指令
 };

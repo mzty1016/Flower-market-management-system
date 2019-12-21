@@ -13,6 +13,7 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include <cstdio>
 
 #include "Global.hpp"
 #include "Flower.hpp"

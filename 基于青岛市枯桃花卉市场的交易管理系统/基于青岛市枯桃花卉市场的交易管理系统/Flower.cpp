@@ -82,3 +82,7 @@ const int& Flower::MonthInfo() {
 const int& Flower::DayInfo() {
     return flower_date.DayInfo();
 }
+//返回花卉上架日期
+const FlowerDate& Flower::FlowerDateInfo() const {
+    return flower_date;
+}

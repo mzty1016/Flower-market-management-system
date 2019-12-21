@@ -10,6 +10,8 @@
 #define FlowerDate_hpp
 
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -23,6 +25,7 @@ class FlowerDate {
     const int& YearInfo(); //返回年份信息
     const int& MonthInfo(); //返回月份信息
     const int& DayInfo(); //返回日信息
+    friend ostream& operator << (ostream &out, FlowerDate flower_date);
  private:
     int year; //花卉上架的年份
     int month; //花卉上架的月份

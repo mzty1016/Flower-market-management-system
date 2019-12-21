@@ -30,7 +30,8 @@ class Flower {
     const string& ShopNameInfo() const; //返回花卉所在的店名
     const string& PetalColorInfo() const; //返回花卉的花瓣颜色
     const float& FlowerPriceInfo() const; //返回花卉价格
-    const int& FlowerNumberInfo() const;
+    const int& FlowerNumberInfo() const; //返回花卉数量
+    const FlowerDate& FlowerDateInfo() const; //返回花卉上架日期
     const int& YearInfo(); //返回年份信息
     const int& MonthInfo(); //返回月份信息
     const int& DayInfo(); //返回日信息
