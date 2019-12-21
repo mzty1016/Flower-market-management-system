@@ -13,6 +13,7 @@
 #include <fstream>
 #include <stack>
 #include <queue>
+#include <cmath>
 
 #include "Global.hpp"
 

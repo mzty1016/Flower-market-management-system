@@ -122,6 +122,7 @@ path_node Map::locate(char x, char y) {
     node.y = (y - 97) + 1;
     return node;
 }
+//275  75
 void Map::ChangeMap(const MapNode &merchant_address, path_node &start) {
     int visit[MAP_WIDTH][MAP_LENGTH];
     for (int i = 0 ; i < MAP_WIDTH; i++) {
@@ -131,18 +132,30 @@ void Map::ChangeMap(const MapNode &merchant_address, path_node &start) {
     queue<path_node*> bfsnode;
     start.front_node = NULL;
     bfsnode.push(q);
+    visit[q->x][q->y] = 1;
+    int x_difference = abs(start.x - merchant_address.x); //用于剪枝的状态点
+    int y_difference = abs(start.y - merchant_address.y);
     stack<path_node*> path;
+    stack<path_node*> memory_management;
+//    int n = 0; //测试搜索次数
+    bool flag = false; //防止第一个点（start）入栈，因为start是函数形参,不能被释放内存
     while (!bfsnode.empty()) {
         path_node *node = bfsnode.front();
+//        n++; //搜索次数
         bfsnode.pop();
-        visit[node->x][node->y] = 1;
-        printf("(%d, %d)\n", node->x, node->y);
-        printf("visit[%d][%d]被设置为%d\n", node->x, node->y, visit[node->x][node->y]);
+        int x_df = abs(node->x - merchant_address.x);
+        int y_df = abs(node->y - merchant_address.y);
+        // 更新状态点
+        if (x_df*x_df + y_df*y_df < x_difference*x_difference + y_difference*y_difference) {
+            x_difference = x_df;
+            y_difference  =y_df;
+        }
         if (node->x == merchant_address.x && node->y == merchant_address.y) {
             while(node->front_node != NULL) {
                 path.push(node);
-                node = node->front_node;//花开富贵
+                node = node->front_node;
             }
+            //释放内存1
             while(!bfsnode.empty()) {
                 path_node *node = bfsnode.front();
                 bfsnode.pop();
@@ -151,71 +164,61 @@ void Map::ChangeMap(const MapNode &merchant_address, path_node &start) {
             break;
         }
         if (market_map[node->x][node->y-1] != '1' && visit[node->x][node->y-1] == 0) {
-            printf("visit[%d][%d] = %d\n", node->x, node->y-1, visit[node->x][node->y-1]);
-            path_node *p = new path_node;
-            *p = {node->x, node->y-1};
-            p->front_node = node;
-            bfsnode.push(p);
+            visit[node->x][node->y-1] = 1;
+            if (abs(abs(node->x - merchant_address.x) - x_difference) > 4 || abs(abs(node->y-1 - merchant_address.y) - y_difference) > 4) ;
+            else {
+                path_node *p = new path_node;
+                *p = {node->x, node->y-1};
+                p->front_node = node;
+                bfsnode.push(p);
+            }
         }
         if (market_map[node->x-1][node->y] != '1' && visit[node->x-1][node->y] == 0){
-            printf("visit[%d][%d] = %d\n", node->x-1, node->y, visit[node->x-1][node->y]);
-            path_node *p = new path_node;
-            *p = {node->x-1, node->y};
-            p->front_node = node;
-            bfsnode.push(p);
+            visit[node->x-1][node->y] = 1;
+            if (abs(abs(node->x-1 - merchant_address.x) - x_difference) > 4 || abs(abs(node->y - merchant_address.y) - y_difference) > 4) ;
+            else {
+                path_node *p = new path_node;
+                *p = {node->x-1, node->y};
+                p->front_node = node;
+                bfsnode.push(p);
+            }
         }
         if (market_map[node->x][node->y+1] != '1' && visit[node->x][node->y+1] == 0){
-            printf("visit[%d][%d] = %d\n", node->x, node->y+1, visit[node->x][node->y+1]);
-            path_node *p = new path_node;
-            *p = {node->x, node->y+1};
-            p->front_node = node;
-            bfsnode.push(p);
+            visit[node->x][node->y+1] = 1;
+            if (abs(abs(node->x - merchant_address.x) - x_difference) > 4 || abs(abs(node->y+1 - merchant_address.y) - y_difference) > 4) ;
+            else {
+                path_node *p = new path_node;
+                *p = {node->x, node->y+1};
+                p->front_node = node;
+                bfsnode.push(p);
+            }
         }
         if (market_map[node->x+1][node->y] != '1' && visit[node->x+1][node->y] == 0){
-            printf("visit[%d][%d] = %d\n", node->x+1, node->y, visit[node->x+1][node->y]);
-            path_node *p = new path_node;
-            *p = {node->x+1, node->y};
-            p->front_node = node;
-            bfsnode.push(p);
+            visit[node->x+1][node->y] = 1;
+            if (abs(abs(node->x+1 - merchant_address.x) - x_difference) > 4 || abs(abs(node->y - merchant_address.y) - y_difference) > 4) ;
+            else {
+                path_node *p = new path_node;
+                *p = {node->x+1, node->y};
+                p->front_node = node;
+                bfsnode.push(p);
+            }
         }
-//        delete node;
+        if (flag)
+            memory_management.push(node);
+        flag = true;
     }
+//    printf("搜索%d次\n", n);
     while (!path.empty()) {
         path_node *node = path.top();
-        printf("(%d, %d)\n", node->x, node->y);
+//        printf("(%d, %d)\n", node->x, node->y);
         market_map[node->x][node->y] = '+';
         path.pop();
     }
+    //释放内存2
+    while (!memory_management.empty()) {
+        path_node *node = memory_management.top();
+        memory_management.pop();
+        delete node;
+    }
 }
 
-//bool flag = false; //判断是否找到
-//stack<path_node> path;
-//void Map::BFS(queue<path_node> &bfsnode, const MapNode &merchant_address) {
-//    path_node node = bfsnode.front();
-//    if (node.x == merchant_address.x && node.y == merchant_address.y) {
-//        flag = true;
-//        return;
-//    }
-//    if (market_map[node.x][node.y+1] == '0') {
-//        path_node node1 = {node.x, node.y+1};
-//        node1.front_node = &node;
-//        bfsnode.push(node1);
-//    }
-//    if (market_map[node.x-1][node.y] == '0'){
-//        path_node node1 = {node.x-1, node.y};
-//        node1.front_node = &node;
-//        bfsnode.push(node1);
-//    }
-//    if (market_map[node.x][node.y-1] == '0'){
-//        path_node node1 = {node.x, node.y-1};
-//        node1.front_node = &node;
-//        bfsnode.push(node1);
-//    }
-//    if (market_map[node.x+1][node.y] == '0'){
-//        path_node node1 = {node.x, node.y-1};
-//        node1.front_node = &node;
-//        bfsnode.push(node1);
-//    }
-//    bfsnode.pop();
-//    BFS(bfsnode, merchant_address);
-//}
