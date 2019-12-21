@@ -39,7 +39,7 @@ class HashTable {
     const int DetectSecond(const int index, int times) const; //不同名的花卉采用二次探测法处理冲突,time为二次探测法探测次数
     void SaveHashTable(); //程序结束时析构函数调用该函数将信息写回文件，实现信息保存
     ~HashTable(); //析构函数
-    vector<LNode*> first;
+    vector<LNode*> first; //指向花结点
  private:
     int length;
 };

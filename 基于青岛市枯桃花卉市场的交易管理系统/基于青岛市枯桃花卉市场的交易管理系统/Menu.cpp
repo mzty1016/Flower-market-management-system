@@ -45,6 +45,7 @@ void MainMenu::ShowMenuBottom() {
     cout << "                                                    :";
 //    Sleep(5);
 }
+//输出版本信息
 void MainMenu::ShowVersion() {
     cout<<endl; cout<<"                ";
     cout<<STAR<<" "<<SOFTWARE<<" "<<STAR<<NEW_LINE<<NEW_LINE;
@@ -57,6 +58,7 @@ void MainMenu::ShowVersion() {
     cout<<endl<<endl<<endl<<endl<<endl<<endl<<"                             Copyright c 2019 Dousir9. All rights reserved."<<endl<<endl;
     cout<<endl<<"\n                                            ";
 }
+//输出错误信息
 void MainMenu::ShowError() {
     fflush(stdin); //先清空缓存区
     cout << "无效的输入，请重新输入" << endl;
@@ -126,6 +128,7 @@ void MainMenu::LoadAd() {
             break;
     }
 }
+//逐行输出广告
 void MainMenu::ShowAd(char ad[]) {
     cout << "* ";
     for (int i = 0; i < 24; i += 3) {
@@ -157,6 +160,7 @@ void MainMenu::LoadAnnouncement() {
             break;
     }
 }
+//逐行输出公告
 void MainMenu::ShowAnnouncement(char an[]){
     cout<<("      ");
     cout<<("┃ ");

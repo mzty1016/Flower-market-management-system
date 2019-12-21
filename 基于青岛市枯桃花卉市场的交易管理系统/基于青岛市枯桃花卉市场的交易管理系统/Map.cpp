@@ -8,6 +8,7 @@
 
 #include "Map.hpp"
 
+//默认构造函数
 Map::Map() {
     num = 0;
     for (int i = 0; i < ADDRESS_MAX_NUM; i++) {
@@ -16,7 +17,7 @@ Map::Map() {
         merchant[i].shop_name = "";
     }
 }
-
+//读取文件建立地图
 void Map::InitMap() {
     ifstream OutMyFile1;
     OutMyFile1.open(MAP_FILE_NAME);
@@ -40,6 +41,7 @@ void Map::InitMap() {
     }
     OutMyFile2.close();
 }
+//写入文件保存地图
 void Map::SaveMap() {
     ofstream InMyFile1;
     InMyFile1.open(MAP_FILE_NAME);
@@ -62,6 +64,7 @@ void Map::SaveMap() {
     }
     InMyFile2.close();
 }
+//输出地图
 void Map::ShowMap() {
     const string kg = "                       ";
     char cc = 'a';
@@ -94,6 +97,7 @@ void Map::ShowMap() {
         cout << endl;
     }
 }
+//商家入驻时修改地图
 bool Map::AddAddress(string &shop_name) {
     if (num == ADDRESS_MAX_NUM)
         return false;
@@ -108,8 +112,9 @@ bool Map::AddAddress(string &shop_name) {
                 return true;
             }
         }
-    return true;
+    return false;
 }
+//根据商家店名搜索商家，返回该商家所在的坐标
 MapNode Map::SearchMap(string &shop_name) {
     for (int i = 0; i < num; i++) {
         if (merchant[i].shop_name == shop_name)
@@ -119,13 +124,14 @@ MapNode Map::SearchMap(string &shop_name) {
     node.x = -1;
     return node;
 }
+//根据地图坐标返回在数组中的位置
 path_node Map::locate(char x, char y) {
     path_node node;
     node.x = (x - 97) + 1;
     node.y = (y - 97) + 1;
     return node;
 }
-//275  75
+//广度优先搜索与剪枝建立画出最短路径
 void Map::ChangeMap(const MapNode &merchant_address, path_node &start) {
     int visit[MAP_WIDTH][MAP_LENGTH];
     for (int i = 0 ; i < MAP_WIDTH; i++) {

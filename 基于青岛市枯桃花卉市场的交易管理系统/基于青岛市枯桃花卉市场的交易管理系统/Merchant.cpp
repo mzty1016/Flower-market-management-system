@@ -91,19 +91,22 @@ void Merchant::Logging() {
         }
     }
     InMyFile2.close();
-    fstream InMyFile3;
-    InMyFile3.open(MERCHANT_FILE_NAME, ios::app);
-    InMyFile3.seekg(0, ios::end); //将文件指针指向文件末端
-    streampos fp = InMyFile3.tellg(); //fp为文件指针的偏移量
-    if (int(fp) != 0) // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
-        InMyFile3<<endl;
-    InMyFile3<<user_name<<" "<<password1<<" "<<shop_name;
-    InMyFile3.close();
     Map m;
     m.InitMap();
-    m.AddAddress(shop_name);
-    m.SaveMap();
-    cout<<endl<<"                                           入驻成功 ";
+    if (m.AddAddress(shop_name) == true) {
+        m.SaveMap();
+        fstream InMyFile3;
+        InMyFile3.open(MERCHANT_FILE_NAME, ios::app);
+        InMyFile3.seekg(0, ios::end); //将文件指针指向文件末端
+        streampos fp = InMyFile3.tellg(); //fp为文件指针的偏移量
+        if (int(fp) != 0) // 偏移量为0，证明文件为空，为首次进入系统,不是首次进入系统就换行
+            InMyFile3<<endl;
+        InMyFile3<<user_name<<" "<<password1<<" "<<shop_name;
+        InMyFile3.close();
+        cout<<endl<<"                                           入驻成功 "<<endl;
+    } else {
+        cout<<endl<<"                                        市场已满入驻失败 "<<endl;
+    }
 }
 //商家登录
 Merchant Merchant::Loggin() {

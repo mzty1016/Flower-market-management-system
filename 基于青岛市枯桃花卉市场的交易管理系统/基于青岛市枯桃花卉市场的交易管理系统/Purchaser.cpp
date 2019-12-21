@@ -227,7 +227,7 @@ void Purchaser::SearchFlower() const {
         return ;
     }
 }
-//价格归并排序
+//价格归并排序1
 LNode* Purchaser::MergeList1(LNode *L1, LNode *L2) const {
     LNode *p, *q, *L, *r;
     p = L1;
@@ -258,6 +258,7 @@ LNode* Purchaser::MergeList1(LNode *L1, LNode *L2) const {
     r->next = p;
     return L;
 }
+//价格归并排序2
 LNode* Purchaser::MergeSort1(LNode *head) const {
     if(head==NULL||head->next==NULL)
         return head;
@@ -277,7 +278,7 @@ LNode* Purchaser::MergeSort1(LNode *head) const {
     righthead = MergeSort1(righthead);
     return MergeList1(lefthead, righthead);
 }
-//数量归并排序
+//数量归并排序1
 LNode* Purchaser::MergeList2(LNode *L1, LNode *L2) const {
     LNode *p, *q, *L, *r;
     p = L1;
@@ -308,7 +309,7 @@ LNode* Purchaser::MergeList2(LNode *L1, LNode *L2) const {
     r->next = p;
     return L;
 }
-
+//数量归并排序2
 LNode* Purchaser::MergeSort2(LNode *head) const {
     if(head==NULL||head->next==NULL)
         return head;
@@ -328,7 +329,7 @@ LNode* Purchaser::MergeSort2(LNode *head) const {
     righthead = MergeSort2(righthead);
     return MergeList2(lefthead, righthead);
 }
-//上架日期归并排序
+//上架日期归并排序1
 LNode* Purchaser::MergeList3(LNode *L1, LNode *L2) const {
     LNode *p, *q, *L, *r;
     p = L1;
@@ -389,7 +390,7 @@ LNode* Purchaser::MergeList3(LNode *L1, LNode *L2) const {
     r->next = p;
     return L;
 }
-
+//上架日期归并排序2
 LNode* Purchaser::MergeSort3(LNode *head) const {
     if(head==NULL||head->next==NULL)
         return head;
