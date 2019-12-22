@@ -14,6 +14,7 @@
 #include <fstream>
 #include <ctime>
 #include <cstdio>
+#include <unistd.h>
 
 #include "Global.hpp"
 #include "Flower.hpp"
@@ -28,7 +29,7 @@ class Merchant : virtual public User {
 public:
     Merchant();  //默认构造函数
     Merchant(const string &user_name, const string &password, const string &shop_name);
-    void Logging(); //商家入驻,入驻成功返回true，失败返回false
+    void Logging(); //商家入驻
     Merchant Loggin(); //商家登录,登陆成功返回true，失败返回false
     void CheckFlower() const; //查看自家上架花卉
     void AddFlower() const; //上架花卉

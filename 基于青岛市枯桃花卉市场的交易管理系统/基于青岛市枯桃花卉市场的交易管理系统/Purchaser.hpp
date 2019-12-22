@@ -13,6 +13,7 @@
 #include <string>
 #include <fstream>
 #include <cstdio>
+#include <unistd.h>
 
 #include "Global.hpp"
 #include "Flower.hpp"

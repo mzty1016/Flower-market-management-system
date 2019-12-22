@@ -230,4 +230,3 @@ void Map::ChangeMap(const MapNode &merchant_address, path_node &start) {
         delete node;
     }
 }
-

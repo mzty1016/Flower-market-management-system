@@ -47,10 +47,8 @@ void Merchant::Logging() {
         InMyFile1>>file_user_name>>file_password>>file_shop_name;
         if (file_user_name == user_name) {
             InMyFile1.close();
-            fflush(stdin);
-            cout<<endl<<"                               该用户名已被注册，入驻失败，正在返回商家界面....\n";
-//            Sleep(2000);
-//            system("CLS");
+            cout<<endl<<"                                        该用户名已被注册，入驻失败"<<endl;
+            MY_PAUSE();
             return ;
         }
     }
@@ -59,34 +57,27 @@ void Merchant::Logging() {
     cout<<endl<<"                                         请输入密码(不小于8位): ";
     cin >> password1;
     if (password1.length() < 8) {
-        fflush(stdin);
-        cout<<endl<<"                              密码长度应不小于8位，入驻失败，正在返回商家界面....";
-//        Sleep(2000);
-//        system("CLS");
+        cout<<endl<<"                                       密码长度应不小于8位，入驻失败"<<endl;
+        MY_PAUSE();
         return ;
     }
     cout<<endl<<"                                           请再次输入密码: ";
     cin >> password2;
     if (password1 != password2) {
-        fflush(stdin);
-        cout<<endl;
-        cout<<"                            两次输入的密码不一致，入驻失败，正在返回商家界面....";
-//        Sleep(2000);
-//        system("CLS");
+        cout<<endl<<"                                       两次输入的密码不一致，入驻失败"<<endl;
+        MY_PAUSE();
         return ;
     }
-    cout<<endl<<"                                           请输入花店名: ";
+    cout<<endl<<"                                        请输入花店名:(4字） ";
     cin >> shop_name;
-    fflush(stdin);
     //验证花店名已存在
     ifstream InMyFile2;
     InMyFile2.open(MERCHANT_FILE_NAME);
     while (!InMyFile2.eof()) {
         InMyFile2>>file_user_name>>file_password>>file_shop_name;
         if (file_shop_name == shop_name) {
-            cout<<endl<<"                                 该店名已存在， 入驻失败，正在返回商家界面....";
-            //        Sleep(2000);
-            //        system("CLS");
+            cout<<endl<<"                                           该店名已存在， 入驻失败"<<endl;
+            MY_PAUSE();
             return ;
         }
     }
@@ -103,9 +94,11 @@ void Merchant::Logging() {
             InMyFile3<<endl;
         InMyFile3<<user_name<<" "<<password1<<" "<<shop_name;
         InMyFile3.close();
-        cout<<endl<<"                                           入驻成功 "<<endl;
+        cout<<endl<<"                                                   入驻成功"<<endl;
+        MY_PAUSE();
     } else {
-        cout<<endl<<"                                        市场已满入驻失败 "<<endl;
+        cout<<endl<<"                                               市场已满入驻失败"<<endl;
+        MY_PAUSE();
     }
 }
 //商家登录
@@ -119,7 +112,6 @@ Merchant Merchant::Loggin() {
     cin >> user_name;
     cout<<endl<<"                                        请 输 入 密 码:";
     cin >> password;
-    fflush(stdin);
     string file_user_name; //文件中的用户名
     string file_password; //文件中的密码
     string file_shop_name; //文件中的店名
@@ -131,16 +123,14 @@ Merchant Merchant::Loggin() {
             if (file_password == password) {
                 OutMyFile.close();
                 cout<<endl<<"                                           密码正确,正在登录...."<<endl;
-//                Sleep(2000);
-//                system("CLS");
+                sleep(2);
                 Merchant m(user_name, password, file_shop_name);
                 m.ModifyLogStatus(true);
                 return m;
             } else {
                 OutMyFile.close();
                 cout<<endl<<"                                     密码错误，正在返回商家界面...."<<endl;
-//                Sleep(2000);
-//                system("CLS");
+                sleep(2);
                 Merchant m;
                 return m;
             }
@@ -148,8 +138,7 @@ Merchant Merchant::Loggin() {
     }
     OutMyFile.close();
     cout<<endl<<"                                     该用户名不存在，正在返回商家界面...."<<endl;
-    //                Sleep(2000);
-    //                system("CLS");
+    sleep(2);
     Merchant m;
     return m;
 }
@@ -168,6 +157,7 @@ void Merchant::CheckFlower() const {
                 cout<<p->flower->FlowerDateInfo();
             }
             p = p->next;
+            usleep(25000);
         }
     }
 }
@@ -192,7 +182,6 @@ void Merchant::AddFlower() const {
     cin >> flower_number;
     cout << "                                         请输入花卉上架日期(年 月 日): ";
     cin >> year >> month >> day;
-    fflush(stdin);
     LNode *p = new LNode;
     p->flower = new Flower(flower_name, shop_name, flower_color, flower_price, flower_number, year, month, day);
     hashtable.AddFlower(p, 1);
@@ -207,7 +196,6 @@ void Merchant::DeleteFlower() const {
     string shop_name = this->shop_name;
     cout << "                                      请输入你要下架花卉的名称 :";
     cin >> flower_name;
-    fflush(stdin);
     if (hashtable.DeleteFlower(flower_name, shop_name, 1))
         cout <<endl<< "                                               花卉下架成功" <<endl;
     else
@@ -221,7 +209,6 @@ void Merchant::ModifyFlowerInfo() const {
     string flower_name;
     cout<<endl<<"                                      请输入你要修改的花卉名称: ";
     cin >> flower_name;
-    fflush(stdin);
     int index = hashtable.SearchFlower(flower_name, 1);
     if (index == -1) {
         cout<<endl<<"                                          您要修改的花卉不存在"<<endl;
@@ -241,7 +228,6 @@ void Merchant::ModifyFlowerInfo() const {
                 int number;
                 int yy, mm, dd;
                 cin >> ch;
-                fflush(stdin);
                 switch (ch) {
                     case '1':
                         cout << "                                           当前花卉颜色为: " << p->flower->PetalColorInfo() <<endl;
@@ -304,7 +290,6 @@ void Merchant::AutoDiscountFlower() const {
     cout << "                                      请输入折扣(0.0——1.0): ";
     float discount;
     cin >> discount;
-    fflush(stdin);
     for (int i = 0; i < MAXSIZE; ++i) {
         LNode *p = hashtable.first[i];
         while (p != NULL) {
@@ -312,6 +297,7 @@ void Merchant::AutoDiscountFlower() const {
                 cout <<endl<<"                                       "<< p->flower->FlowerNameInfo() << "的价格从"<< p->flower->FlowerPriceInfo() << "变为";
                 p->flower->ModifyFlowerPrice(p->flower->FlowerPriceInfo() * discount);
                 cout << p->flower->FlowerPriceInfo() <<endl;
+                usleep(25000);
             }
             p = p->next;
         }

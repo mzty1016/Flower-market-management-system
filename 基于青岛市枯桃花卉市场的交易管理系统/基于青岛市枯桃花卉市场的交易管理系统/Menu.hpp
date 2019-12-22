@@ -10,6 +10,8 @@
 #define Menu_hpp
 
 #include <iostream>
+#include <cstdlib>
+#include <unistd.h>
 
 #include "Merchant.hpp"
 #include "Purchaser.hpp"

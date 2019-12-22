@@ -8,3 +8,14 @@
 
 #include "Global.hpp"
 
+//清空缓存区
+void MY_FLUSH() {
+    char ch;
+    while((ch = getchar()) != '\n' && ch != EOF);
+}
+//按任意键返回
+void MY_PAUSE() {
+    MY_FLUSH();
+    cout <<endl<< "                                              按任意键返回..." << endl;
+    getchar();
+}

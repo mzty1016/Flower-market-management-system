@@ -16,21 +16,17 @@ extern char announcement1[120], announcement2[120], announcement3[120], announce
 Admin::Admin() { }
 //管理员登录
 bool Admin::Loggin() {
-    cout<<endl<<TT<<TT;
-    cout<<"        "<<STAR<<" "<<SOFTWARE<<" "<<STAR<<endl<<endl;
     cout<<endl<<"                                           请输入管理员密码: ";
     string pass_word;
     cin >> pass_word;
     fflush(stdin);
     if (pass_word == admin_password) {
         cout<<endl<<"                                           密码正确,正在登录...."<<endl;
-        //                Sleep(2000);
-        //                system("CLS");
+        sleep(2);
         return true;
     }
     cout<<endl<<"                                     密码错误，正在返回主菜单...."<<endl;
-    //                Sleep(2000);
-    //                system("CLS");
+    sleep(2);
     return false;
 }
 //发布公告
@@ -193,7 +189,7 @@ void Admin::PurchaserRetrievePassword() {
             cout<<endl<<"                                            请输入修改后的密码: ";
             cin >> password1;
             if (password1.length() < 8) {
-                cout<<endl<<"                                     密码长度小于8位，修改失败"<<endl;
+                cout<<endl<<"                                         密码长度小于8位，修改失败"<<endl;
                 OutMyFile.close();
                 return ;
             }
@@ -205,7 +201,7 @@ void Admin::PurchaserRetrievePassword() {
                 q->password = password1;
                 cout<<endl<<"                                              密码修改成功"<<endl;
             } else {
-                cout<<endl<<"                                   两次输入的密码不一致，修改失败"<<endl;
+                cout<<endl<<"                                       两次输入的密码不一致，修改失败"<<endl;
                 OutMyFile.close();
                 return ;
             }
@@ -215,7 +211,7 @@ void Admin::PurchaserRetrievePassword() {
     }
     OutMyFile.close();
     if (flag == false)
-        cout<<endl<<"                                          未找到该用户"<<endl;
+        cout<<endl<<"                                             未找到该用户"<<endl;
     ofstream InMyFile;
     InMyFile.open(PURCHASER_FILE_NAME);
     L = L->next;
@@ -257,7 +253,7 @@ void Admin::MerchantRetrievePassword() {
             cout<<endl<<"                                            请输入修改后的密码: ";
             cin >> password1;
             if (password1.length() < 8) {
-                cout<<endl<<"                                     密码长度小于8位，修改失败"<<endl;
+                cout<<endl<<"                                         密码长度小于8位，修改失败"<<endl;
                 OutMyFile.close();
                 return ;
             }
@@ -269,7 +265,7 @@ void Admin::MerchantRetrievePassword() {
                 q->password = password1;
                 cout<<endl<<"                                              密码修改成功"<<endl;
             } else {
-                cout<<endl<<"                                   两次输入的密码不一致，修改失败"<<endl;
+                cout<<endl<<"                                       两次输入的密码不一致，修改失败"<<endl;
                 OutMyFile.close();
                 return ;
             }
@@ -279,7 +275,7 @@ void Admin::MerchantRetrievePassword() {
     }
     OutMyFile.close();
     if (flag == false)
-        cout<<endl<<"                                          未找到该用户"<<endl;
+            cout<<endl<<"                                              未找到该用户"<<endl;
     ofstream InMyFile;
     InMyFile.open(MERCHANT_FILE_NAME);
     L = L->next;

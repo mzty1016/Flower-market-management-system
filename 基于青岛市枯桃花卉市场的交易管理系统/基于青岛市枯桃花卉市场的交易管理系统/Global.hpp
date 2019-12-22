@@ -38,7 +38,7 @@ const string FILE_ADDRESS = "/Users/xumingfei/Desktop/"; //文件所在地址
 const string FILE_TYPE = ".txt"; //文件类型
 
 //关于菜单
-const string STAR = "★★★★★★★★★★★";
+const string STAR = "★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★";
 const string LHEAD = "╔═════════════";
 const string HEAD = "═════════════════════";
 const string RHEAD = "═════════════╗";
@@ -56,5 +56,10 @@ const string SOFTWARE = "青岛市枯桃花卉市场交易管理系统";
 const string AUTHOR = "Dousir9";
 const string VERSION = "1.0";
 const string NEW_LINE = "\n";
+
+//清空缓存区
+void MY_FLUSH();
+//按任意键返回
+void MY_PAUSE();
 
 #endif /* Global_hpp */
