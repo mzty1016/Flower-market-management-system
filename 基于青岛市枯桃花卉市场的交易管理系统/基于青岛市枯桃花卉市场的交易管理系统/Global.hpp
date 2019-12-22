@@ -26,7 +26,7 @@ const int MAP_WIDTH = 22; //花卉市场宽度
 const int ADDRESS_MAX_NUM = 35; //花卉市场最大商家容量
 
 //关于文件
-const string FILE_ADDRESS = "/Users/xumingfei/Desktop/"; //文件所在地址
+const string FILE_ADDRESS = "/Users/xumingfei/Desktop/git/Flower-market-management-system/基于青岛市枯桃花卉市场的交易管理系统/TXT/"; //文件所在地址
 const string FILE_TYPE = ".txt"; //文件类型
 const string FLOWER_FILE_NAME = FILE_ADDRESS + "data.txt"; //存放花卉信息的文件名
 const string MERCHANT_FILE_NAME = FILE_ADDRESS + "merchant.txt"; //存放商家账号密码和店名的文件名
